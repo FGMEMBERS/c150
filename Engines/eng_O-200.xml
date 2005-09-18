@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<!--
+  File:     O-200.xml
+  Author:   Aero-Matic v 0.7
+
+  Inputs:
+    name:           O-200
+    type:           piston
+    power:          100.0 hp
+    augmented?      no
+    injected?       no
+
+O-200: 100 hp (75 kW)
+specifications
+
+4-cylinder, horizontally-opposed, air-cooled piston engine
+Displacement: 201 cubic inches  (3.3 litres)
+Bore x stroke: 4.0625 x 3.875 inches
+used by
+
+Aeronca 7EC Champion
+Cessna 150 
+
+-->
+
+<FG_PISTON NAME="O-200">
+  MINMP          6.0
+  MAXMP         30.0
+  DISPLACEMENT 201.00
+  MAXHP        100.00
+  CYCLES         2.0
+  IDLERPM      550.0
+  MAXTHROTTLE    1.0
+  MINTHROTTLE    0.2
+</FG_PISTON>
