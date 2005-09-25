@@ -3,7 +3,7 @@
 <PropertyList>
 
  <path>cessna150.ac</path>
-
+ <texture-path>Vintage</texture-path>
 
  <panel>
   <name>MainPanel</name>
