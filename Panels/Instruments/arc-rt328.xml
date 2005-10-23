@@ -270,7 +270,7 @@ properties' values.
 			<transformations>
 				<transformation>
 					<type>y-shift</type>
-					<offset>-15</offset>
+					<offset>-45</offset>
 				</transformation>
 			</transformations>
 		</layer>
@@ -284,12 +284,12 @@ properties' values.
 				<y2>0.30</y2>
 			</texture>
 			<w>12</w>
-			<h>15</h>
+			<h>12</h>
 		</layer>
 		<transformations>
 			<transformation>
 				<type>y-shift</type>
-				<offset>-20</offset>
+				<offset>-40</offset>
 			</transformation>
 		</transformations>
 	</layer>
@@ -442,13 +442,13 @@ properties' values.
 	<action>
 		<name>ident volume increase</name>
 		<button>0</button>
-		<x>40</x>
-		<y>-24</y>
+		<x>44</x>
+		<y>-42</y>
 		<w>8</w>
 		<h>16</h>
 		<binding>
 			<command>property-adjust</command>
-			<property alias="../../../../params/nav-morse-id-volume-prop"/>
+			<property alias="../../../../params/nav-morse-id-volume-prop">#alias=../../../../params/nav-morse-id-volume-prop</property>
 			<step>0.5</step>
 			<min>0</min>
 			<max>2</max>
@@ -457,13 +457,13 @@ properties' values.
 	<action>
 		<name>ident volume decrease</name>
 		<button>0</button>
-		<x>32</x>
-		<y>-24</y>
-		<w>16</w>
-		<h>8</h>
+		<x>52</x>
+		<y>-42</y>
+		<w>8</w>
+		<h>16</h>
 		<binding>
 			<command>property-adjust</command>
-			<property alias="../../../../params/nav-morse-id-volume-prop"/>
+			<property alias="../../../../params/nav-morse-id-volume-prop">#alias=../../../../params/nav-morse-id-volume-prop</property>
 			<step>-0.5</step>
 			<min>0</min>
 			<max>2</max>
@@ -472,13 +472,13 @@ properties' values.
 	<action>
 		<name>ident volume on/off</name>
 		<button>0</button>
-		<x>-6</x>
-		<y>-30</y>
+		<x>-7</x>
+		<y>-47</y>
 		<w>14</w>
 		<h>16</h>
 		<binding>
 			<command>property-toggle</command>
-			<property alias="../../../../params/nav-morse-ident-toggle-prop"/>
+			<property alias="../../../../params/nav-morse-ident-toggle-prop">#alias=../../../../params/nav-morse-ident-toggle-prop</property>
 		</binding>
 	</action>
 </actions>

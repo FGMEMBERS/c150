@@ -3,7 +3,6 @@
 <PropertyList>
 
  <path>cessna150.ac</path>
- <texture-path>Vintage</texture-path>
 
  <panel>
   <name>MainPanel</name>
@@ -37,9 +36,12 @@
  <!-- move some objects to bottom of aircraft graph -->
  <animation>
   <object-name>bottom</object-name>
-  <object-name>WindShield</object-name>
   <object-name>Propeller.Slow</object-name>
   <object-name>Propeller.Fast</object-name>
+  <object-name>LeftNavLightOn</object-name>
+  <object-name>RightNavLightOn</object-name>
+  <object-name>RearNavLightOn</object-name>
+  <object-name>WindShield</object-name>
  </animation>
 
  <animation>
@@ -48,8 +50,6 @@
   <object-name>WindowsBack</object-name>
   <object-name>Propeller.Fast</object-name>
   <object-name>switchGroup</object-name>
-  <object-name>cabin</object-name>
-  <object-name>ground</object-name>
  </animation>
 
  <animation>
@@ -106,13 +106,6 @@
   <object-name>Mixture</object-name>
   <object-name>MixtureRod</object-name>
  </animation>
-
- <animation>
-  <name>FlapSwitchGroup</name>
-  <object-name>FlapSwitch</object-name>
-  <object-name>FlapSwitchRod</object-name>
- </animation>
-
 
  <animation>
   <type>translate</type>
@@ -188,7 +181,7 @@
  <animation>
   <type>translate</type>
   <object-name>MixtureGroup</object-name>
-  <property>controls/engines/engine[0]/mixture</property>
+  <property>controls/engines/engine[0]/mixture-lever</property>
   <factor>-0.09</factor>
   <axis>
    <x>1.0</x>
@@ -200,7 +193,7 @@
  <animation>
   <type>rotate</type>
   <property>controls/flight/flaps</property>
-  <object-name>FlapSwitchGroup</object-name>
+  <object-name>FlapSwitch</object-name>
   <factor>60</factor>
   <offset-deg>-30</offset-deg>
   <axis>
@@ -245,6 +238,41 @@
    <x-m>1.635</x-m>
    <y-m>-0.04</y-m>
    <z-m>-0.087</z-m>
+  </center>
+ </animation>  
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Key</object-name>
+  <property>controls/engines/engine[0]/magnetos</property>
+  <factor>-30</factor>
+  <offset>-45</offset>
+  <axis>
+   <x1-m>1.656</x1-m>
+   <y1-m>-0.353</y1-m>
+   <z1-m>-0.000</z1-m>
+   <x2-m>1.679</x2-m>
+   <y2-m>-0.353</y2-m>
+   <z2-m>0.005</z2-m>
+  </axis>
+ </animation>  
+ <animation>
+  <type>rotate</type>
+  <object-name>Keypart</object-name>
+  <property>instrumentation/slip-skid-ball/indicated-slip-skid</property>
+  <factor>-15.0</factor>
+  <offset>0.0</offset>
+  <min-deg>-6.0</min-deg>
+  <max-deg>6.0</max-deg>
+  <axis>
+   <x>1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+  <center>
+   <x-m>1.680</x-m>
+   <y-m>-0.353</y-m>
+   <z-m>0.005</z-m>
   </center>
  </animation>  
 
@@ -446,27 +474,64 @@
   </condition>
  </animation>
 
+ <!-- Lights -->
+
  <animation>
   <type>select</type>
   <object-name>LeftNavLightOn</object-name>
   <object-name>RightNavLightOn</object-name>
   <object-name>RearNavLightOn</object-name>
   <condition>
-   <property>controls/lighting/nav-lights</property>
+   <property>/sim/model/c150/lighting/nav-lights</property>
   </condition>
  </animation>
 
  <animation>
-  <type>select</type>
-  <object-name>LeftNavLightOff</object-name>
-  <object-name>RightNavLightOff</object-name>
-  <object-name>RearNavLightOff</object-name>
-  <condition>
-   <not>
-    <property>controls/lighting/nav-lights</property>
-   </not>
-  </condition>
+  <type>translate</type>
+  <object-name>LeftNavLightOn</object-name>
+  <offset-m>5.60</offset-m>
+  <axis>
+   <x>2.30</x>
+   <y>-4.964</y>
+   <z>0.683</z>
+  </axis>
  </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>RightNavLightOn</object-name>
+  <offset-m>5.60</offset-m>
+  <axis>
+   <x>2.30</x>
+   <y>4.964</y>
+   <z>0.683</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>RearNavLightOn</object-name>
+  <offset-m>7.35</offset-m>
+  <axis>
+   <x>7.35</x>
+   <y>0.0</y>
+   <z>1.172</z>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>billboard</type>
+  <object-name>LeftNavLightOn</object-name>
+ </animation>
+ <animation>
+  <type>billboard</type>
+  <object-name>RightNavLightOn</object-name>
+ </animation>
+ <animation>
+  <type>billboard</type>
+  <object-name>RearNavLightOn</object-name>
+ </animation>
+
 
  <animation>
   <name>BeaconFlasher</name>
@@ -554,11 +619,35 @@
   </axis>
  </animation>
 
- <!--  -->
+ <animation>
+  <type>shader</type>
+  <shader>chrome</shader>
+  <texture>chrome2.rgb</texture>
+  <object-name>NoseWheelPart</object-name>
+ </animation>
+
+ <!-- Nose Wheel & Strut -->
 
  <animation>
   <type>rotate</type>
-  <object-name>NoseStrutGroup</object-name>
+  <object-name>HelperNoseGroup</object-name>
+  <property>surface-positions/rudder-pos-norm</property>
+  <offset-deg>6.5</offset-deg>
+    <axis>
+      <x>0</x>
+      <y>1</y>
+      <z>0</z>
+    </axis>
+    <center>
+      <x-m>0.835</x-m>
+      <y-m>0.0</y-m>
+      <z-m>-0.641</z-m>
+    </center>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>NoseGroup</object-name>
   <condition>
    <property>gear/gear[0]/wow</property>
   </condition>
@@ -577,9 +666,30 @@
  <animation>
     <type>translate</type>
     <object-name>NoseWheelPart</object-name>
+    <property>gear/gear[0]/compression-norm</property>
+    <factor>0.15</factor>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+ <animation>
+    <type>translate</type>
     <object-name>NoseWheel</object-name>
     <property>gear/gear[0]/compression-norm</property>
-    <factor>0.5</factor>
+    <factor>0.15</factor>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+ <animation>
+    <type>translate</type>
+    <object-name>FLdamper</object-name>
+    <property>gear/gear[0]/compression-norm</property>
+    <factor>0.15</factor>
     <axis>
       <x>0</x>
       <y>0</y>
@@ -590,32 +700,34 @@
     <type>rotate</type>
     <object-name>FLdamper</object-name>
     <property>gear/gear[0]/compression-norm</property>
-    <factor>180</factor>
+    <factor>48</factor>
+    <offset-deg>-61</offset-deg>
     <axis>
       <x>0</x>
       <y>1</y>
       <z>0</z>
     </axis>
     <center>
-      <x-m>0.972</x-m>
+      <x-m>0.856</x-m>
       <y-m>0.0</y-m>
-      <z-m>-0.730</z-m>
+      <z-m>-0.844</z-m>
     </center>
   </animation>
   <animation>
     <type>rotate</type>
     <object-name>FUdamper</object-name>
     <property>gear/gear[0]/compression-norm</property>
-    <factor>90</factor>
+    <factor>-48</factor>
+    <offset-deg>64</offset-deg>
     <axis>
       <x>0</x>
-      <y>-1</y>
+      <y>1</y>
       <z>0</z>
     </axis>
     <center>
-      <x-m>0.860</x-m>
+      <x-m>0.864</x-m>
       <y-m>0.0</y-m>
-      <z-m>-0.852</z-m>
+      <z-m>-0.636</z-m>
     </center>
   </animation>
 
@@ -650,8 +762,10 @@
       <y-m>0.30</y-m>
       <z-m>-0.540</z-m>
     </center>
-  </animation>
-  
+ </animation>
+
+ <!-- Control surfaces -->
+
  <animation>
   <type>rotate</type>
   <object-name>LeftAileron</object-name>
@@ -714,13 +828,22 @@
   <property>surface-positions/flap-pos-norm</property>
   <factor>0.113</factor>
   <axis>
-   <x1-m>1.826</x1-m>
-   <y1-m>-0.480</y1-m>
-   <z1-m>0.543</z1-m>
-   <x2-m>1.796</x2-m>
-   <y2-m>-0.480</y2-m>
-   <z2-m>0.434</z2-m>
+   <x>-0.03</x>
+   <y>0.0</y>
+   <z>-0.109</z>
   </axis>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>LeftFlap</object-name>
+  <property>surface-positions/flap-pos-norm</property>
+  <factor>0.10</factor>
+    <axis>
+      <x>1.0</x>
+      <y>0.0</y>
+      <z>0.0</z>
+    </axis>
  </animation>
 
  <animation>
@@ -729,13 +852,25 @@
   <property>surface-positions/flap-pos-norm</property>
   <factor>40</factor>
   <axis>
-   <x1-m>2.85</x1-m>
-   <y1-m>0.514</y1-m>
-   <z1-m>0.332</z1-m>
-   <x2-m>2.85</x2-m>
+   <x1-m>2.87</x1-m>
+   <y1-m>0.516</y1-m>
+   <z1-m>0.579</z1-m>
+   <x2-m>2.87</x2-m>
    <y2-m>2.058</y2-m>
-   <z2-m>0.332</z2-m>
+   <z2-m>0.547</z2-m>
   </axis>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>RightFlap</object-name>
+  <property>surface-positions/flap-pos-norm</property>
+  <factor>0.10</factor>
+    <axis>
+      <x>1.0</x>
+      <y>0.0</y>
+      <z>0.0</z>
+    </axis>
  </animation>
 
  <animation>
@@ -744,12 +879,12 @@
   <property>surface-positions/flap-pos-norm</property>
   <factor>40</factor>
   <axis>
-   <x1-m>2.87</x1-m> <!-- 2.90 nearly ok -->
+   <x1-m>2.87</x1-m>
    <y1-m>-2.058</y1-m>
-   <z1-m>0.332</z1-m>
+   <z1-m>0.547</z1-m>
    <x2-m>2.87</x2-m>
-   <y2-m>-0.514</y2-m>
-   <z2-m>0.332</z2-m>
+   <y2-m>-0.516</y2-m>
+   <z2-m>0.579</z2-m>
   </axis>
  </animation>
 
@@ -816,6 +951,7 @@
   </axis>
  </animation>
 
+ <!-- Doors -->
 
  <animation>
   <type>rotate</type>
@@ -879,5 +1015,101 @@
   </axis>
  </animation>
 
+
+ <!-- Rudder Pedals and brake -->
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Lpedal</object-name>
+  <property>surface-positions/rudder-pos-norm</property>
+  <factor>8</factor>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+  <center>
+   <x-m>1.420</x-m>
+   <y-m>0.0</y-m>
+   <z-m>-0.477</z-m>
+  </center>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>LpedalTop</object-name>
+  <property>controls/gear/brake-left</property>
+  <factor>-10</factor>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+  <center>
+   <x-m>1.426</x-m>
+   <y-m>0.0</y-m>
+   <z-m>-0.252</z-m>
+  </center>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>Rpedal</object-name>
+  <property>surface-positions/rudder-pos-norm</property>
+  <factor>-8</factor>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+  <center>
+   <x-m>1.420</x-m>
+   <y-m>0.0</y-m>
+   <z-m>-0.477</z-m>
+  </center>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>RpedalTop</object-name>
+  <property>controls/gear/brake-right</property>
+  <factor>-10</factor>
+  <axis>
+   <x>0.0</x>
+   <y>1.0</y>
+   <z>0.0</z>
+  </axis>
+  <center>
+   <x-m>1.426</x-m>
+   <y-m>0.0</y-m>
+   <z-m>-0.252</z-m>
+  </center>
+ </animation>
+
+ <animation>
+  <type>translate</type>
+  <object-name>parkBrake</object-name>
+  <property>controls/gear/brake-parking</property>
+  <factor>0.05</factor>
+  <axis>
+   <x>1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
+
+ <!-- -->
+
+ <animation>
+  <type>translate</type>
+  <object-name>Primer</object-name>
+  <property>controls/engines[0]/engine/primer-pump</property>
+  <factor>0.03</factor>
+  <axis>
+   <x>1.0</x>
+   <y>0.0</y>
+   <z>0.0</z>
+  </axis>
+ </animation>
 
 </PropertyList>

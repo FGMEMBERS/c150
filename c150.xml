@@ -19,7 +19,7 @@
 
   Outputs:
     wing loading:  10.00 lb/sq-ft
-    CL-alpha:      5 per radian
+    CL-alpha:      5 per radian		=> 4.600
     CL-0:          0.25
     CL-max:        1.4
     CD-0:          0.028
@@ -40,18 +40,26 @@
    AC_IZZ       1069
    AC_IXZ       0
    AC_EMPTYWT   1111
-   AC_CGLOC     60 0.0 -7.2
-   AC_AERORP    60.0 0.0 0.0
-   AC_EYEPTLOC  0.0 0.0 0.0
+   AC_CGLOC     82.0 0.0 -15.75		<!-- 32.94 60 0.0 -7.2 -->
+   AC_AERORP    82.0 0.0 -15.75		<!-- 60.0 0.0 0.0 -->
+   AC_EYEPTLOC  0.0 0.0 0.0		<!-- 0.0 0.0 0.0 -->
    AC_VRP       0 0 0
  </METRICS>
 
-
+ <!-- 1800.0 60.0 mou (oscilations)
+	180.0 600.0 s'ecrase sous le poids
+ -->
  <UNDERCARRIAGE>
+  AC_GEAR NOSE_LG   31.7 0.0 -48.43 1800.0 600.0 0.5 0.8 0.02 STEERABLE NONE 5.0 FIXED
+  AC_GEAR LEFT_MLG  89.8 -43.3 -46.46 5400.0 1600.0 0.5 0.8 0.02 FIXED LEFT  0 FIXED
+  AC_GEAR RIGHT_MLG 89.8 43.3 -46.46 5400.0 1600.0 0.5 0.8 0.02 FIXED RIGHT 0 FIXED
+ </UNDERCARRIAGE>
+
+ <!--UNDERCARRIAGE>
   AC_GEAR NOSE_LG   16.8 0.0 -32.0 1800.0 600.0 0.5 0.8 0.02 STEERABLE NONE 5.0 FIXED
   AC_GEAR LEFT_MLG  65.0 -36.0 -32.0 5400.0 1600.0 0.5 0.8 0.02 FIXED LEFT  0 FIXED
   AC_GEAR RIGHT_MLG 65.0 36.0 -32.0 5400.0 1600.0 0.5 0.8 0.02 FIXED RIGHT 0 FIXED
- </UNDERCARRIAGE>
+ </UNDERCARRIAGE-->
 
 
  <PROPULSION>
@@ -154,15 +162,18 @@
 
 
  <AERODYNAMICS>
+  AC_ALPHALIMITS -0.087 0.248
+
   <AXIS NAME="LIFT">
+    <-- CLalpha := 4.600 -->
     <COEFFICIENT NAME="CLalpha" TYPE="VECTOR">
       Lift_due_to_alpha
       4
       aero/alpha-rad
       aero/qbar-psf|metrics/Sw-sqft
-      -0.20 -0.750
+      -0.20 -0.670
        0.00 0.250
-     0.23 1.400
+       0.23 1.308
        0.60 0.710
     </COEFFICIENT>
     <COEFFICIENT NAME="dCLflap" TYPE="VALUE">
@@ -182,15 +193,16 @@
     </COEFFICIENT>
   </AXIS>
   <AXIS NAME="DRAG">
+    <-- CDalpha := 0.130 -->
     <COEFFICIENT NAME="CD0" TYPE="VECTOR">
        Drag_at_zero_lift
        5
        aero/alpha-rad
        aero/qbar-psf|metrics/Sw-sqft
        -1.57       1.500
-       -0.26    0.056
+       -0.26    -0.0058
         0.00    0.028
-        0.26    0.056
+        0.26    0.0618
         1.57       1.500
     </COEFFICIENT>
     <COEFFICIENT NAME="CDi" TYPE="VALUE">
@@ -239,24 +251,24 @@
     <COEFFICIENT NAME="CYb" TYPE="VALUE">
        Side_force_due_to_beta
        aero/qbar-psf|metrics/Sw-sqft|aero/beta-rad
-       -1
+       -0.310
     </COEFFICIENT>
   </AXIS>
   <AXIS NAME="ROLL">
     <COEFFICIENT NAME="Clb" TYPE="VALUE">
        Roll_moment_due_to_beta
        aero/qbar-psf|metrics/Sw-sqft|metrics/bw-ft|aero/beta-rad
-       -0.1
+       -0.089
     </COEFFICIENT>
     <COEFFICIENT NAME="Clp" TYPE="VALUE">
        Roll_moment_due_to_roll_rate
        aero/qbar-psf|metrics/Sw-sqft|metrics/bw-ft|aero/bi2vel|velocities/p-aero-rad_sec
-       -0.4
+       -0.470
     </COEFFICIENT>
     <COEFFICIENT NAME="Clr" TYPE="VALUE">
        Roll_moment_due_to_yaw_rate
        aero/qbar-psf|metrics/Sw-sqft|metrics/bw-ft|aero/bi2vel|velocities/r-aero-rad_sec
-       0.15
+       0.096
     </COEFFICIENT>
     <COEFFICIENT NAME="Clda" TYPE="VECTOR">
        Roll_moment_due_to_aileron
@@ -269,14 +281,15 @@
     <COEFFICIENT NAME="Cldr" TYPE="VALUE">
        Roll_moment_due_to_rudder
        aero/qbar-psf|metrics/Sw-sqft|metrics/bw-ft|fcs/rudder-pos-rad
-       0.01
+       0.014
     </COEFFICIENT>
   </AXIS>
   <AXIS NAME="PITCH">
+    <-- check -->
     <COEFFICIENT NAME="Cmalpha" TYPE="VALUE">
        Pitch_moment_due_to_alpha
        aero/qbar-psf|metrics/Sw-sqft|metrics/cbarw-ft|aero/alpha-rad
-       -0.5
+       -5.200
     </COEFFICIENT>
     <COEFFICIENT NAME="Cmde" TYPE="VECTOR">
        Pitch_moment_due_to_elevator
@@ -289,29 +302,29 @@
     <COEFFICIENT NAME="Cmq" TYPE="VALUE">
        Pitch_moment_due_to_pitch_rate
        aero/qbar-psf|metrics/Sw-sqft|metrics/cbarw-ft|aero/ci2vel|velocities/q-aero-rad_sec
-       -12
+       -12.400
     </COEFFICIENT>
     <COEFFICIENT NAME="Cmadot" TYPE="VALUE">
        Pitch_moment_due_to_alpha_rate
        aero/qbar-psf|metrics/Sw-sqft|metrics/cbarw-ft|aero/ci2vel|aero/alphadot-rad_sec
-       -7
+       -0.890
     </COEFFICIENT>
   </AXIS>
   <AXIS NAME="YAW">
     <COEFFICIENT NAME="Cnb" TYPE="VALUE">
        Yaw_moment_due_to_beta
        aero/qbar-psf|metrics/Sw-sqft|metrics/bw-ft|aero/beta-rad
-       0.12
+       0.065
     </COEFFICIENT>
     <COEFFICIENT NAME="Cnr" TYPE="VALUE">
        Yaw_moment_due_to_yaw_rate
        aero/qbar-psf|metrics/Sw-sqft|metrics/bw-ft|aero/bi2vel|velocities/r-aero-rad_sec
-       -0.15
+       -0.099
     </COEFFICIENT>
     <COEFFICIENT NAME="Cndr" TYPE="VALUE">
        Yaw_moment_due_to_rudder
        aero/qbar-psf|metrics/Sw-sqft|metrics/bw-ft|fcs/rudder-pos-rad
-       -0.1
+       -0.066
     </COEFFICIENT>
     <COEFFICIENT NAME="Cnda" TYPE="VALUE">
        Adverse_yaw

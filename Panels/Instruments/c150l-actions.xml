@@ -43,9 +43,9 @@ properties' values.
 		<name>Master Alt</name>
 		<button>0</button>
 		<x>-200</x>
-		<y>-65</y>
+		<y>-60</y>
 		<w>10</w>
-		<h>60</h>
+		<h>70</h>
 		<binding>
 			<command>property-toggle</command>
 			<property>/controls/engines/engine[0]/master-alt</property>
@@ -55,9 +55,9 @@ properties' values.
 		<name>Master Bat</name>
 		<button>0</button>
 		<x>-190</x>
-		<y>-65</y>
+		<y>-60</y>
 		<w>10</w>
-		<h>60</h>
+		<h>70</h>
 		<binding>
 			<command>property-toggle</command>
 			<property>/controls/engines/engine[0]/master-bat</property>
@@ -195,19 +195,31 @@ properties' values.
 			<property>controls/anti-ice/pitot-heat</property>
 		</binding>
 	</action>
+	<action>
+		<name>toggle dome light</name>
+		<button>0</button>
+		<x>-100</x>
+		<y>40</y>
+		<w>15</w>
+		<h>50</h>
+		<binding>
+			<command>property-toggle</command>
+			<property>controls/lighting/dome-lights</property>
+		</binding>
+	</action>
 	<!-- elevator-trim -->
 	<action>
 		<name>small increase</name>
 		<button>0</button>
 		<x>25</x>
-		<y>-90</y>
+		<y>-150</y>
 		<w>40</w>
-		<h>80</h>
+		<h>150</h>
 		<binding>
 			<command>property-adjust</command>
 			<property>controls/flight/elevator-trim</property>
 			<step>0.03</step>
-			<min>0</min>
+			<min>-1.0</min>
 			<max>1.0</max>
 			<wrap>false</wrap>
 		</binding>
@@ -216,14 +228,14 @@ properties' values.
 		<name>small decrease</name>
 		<button>0</button>
 		<x>25</x>
-		<y>-170</y>
+		<y>-300</y>
 		<w>40</w>
-		<h>80</h>
+		<h>150</h>
 		<binding>
 			<command>property-adjust</command>
 			<property>controls/flight/elevator-trim</property>
 			<step>-0.03</step>
-			<min>0</min>
+			<min>-1.0</min>
 			<max>1.0</max>
 			<wrap>false</wrap>
 		</binding>
@@ -233,7 +245,7 @@ properties' values.
 		<name>Flap Retract</name>
 		<button>0</button>
 		<x>170</x>
-		<y>30</y>
+		<y>40</y>
 		<w>40</w>
 		<h>60</h>
 		<binding>
@@ -249,7 +261,7 @@ properties' values.
 		<name>Flap Extend</name>
 		<button>0</button>
 		<x>170</x>
-		<y>-30</y>
+		<y>-20</y>
 		<w>40</w>
 		<h>60</h>
 		<binding>
@@ -279,7 +291,7 @@ properties' values.
 		<name>big decrease</name>
 		<button>0</button>
 		<x>60</x>
-		<y>-20</y>
+		<y>-15</y>
 		<w>25</w>
 		<h>80</h>
 		<binding>
@@ -295,39 +307,7 @@ properties' values.
 		<name>big increase</name>
 		<button>0</button>
 		<x>85</x>
-		<y>-20</y>
-		<w>25</w>
-		<h>80</h>
-		<binding>
-			<command>property-adjust</command>
-			<property>controls/engines/engine/throttle</property>
-			<step>0.07</step>
-			<min>0</min>
-			<max>1.0</max>
-			<wrap>false</wrap>
-		</binding>
-	</action>
-	<action>
-		<name>big decrease</name>
-		<button>0</button>
-		<x>60</x>
-		<y>-20</y>
-		<w>25</w>
-		<h>80</h>
-		<binding>
-			<command>property-adjust</command>
-			<property>controls/engines/engine/throttle</property>
-			<step>-0.07</step>
-			<min>0</min>
-			<max>1.0</max>
-			<wrap>false</wrap>
-		</binding>
-	</action>
-	<action>
-		<name>big increase</name>
-		<button>0</button>
-		<x>85</x>
-		<y>-20</y>
+		<y>-15</y>
 		<w>25</w>
 		<h>80</h>
 		<binding>
@@ -344,12 +324,12 @@ properties' values.
 		<name>small decrease</name>
 		<button>0</button>
 		<x>110</x>
-		<y>0</y>
+		<y>3</y>
 		<w>25</w>
 		<h>80</h>
 		<binding>
 			<command>property-adjust</command>
-			<property>controls/engines/engine/mixture</property>
+			<property>controls/engines/engine/mixture-lever</property>
 			<step>-0.03</step>
 			<min>0</min>
 			<max>1.0</max>
@@ -360,12 +340,12 @@ properties' values.
 		<name>small increase</name>
 		<button>0</button>
 		<x>135</x>
-		<y>0</y>
+		<y>3</y>
 		<w>25</w>
 		<h>80</h>
 		<binding>
 			<command>property-adjust</command>
-			<property>controls/engines/engine/mixture</property>
+			<property>controls/engines/engine/mixture-lever</property>
 			<step>0.03</step>
 			<min>0</min>
 			<max>1.0</max>
@@ -373,35 +353,27 @@ properties' values.
 		</binding>
 	</action>
 	<action>
-		<name>small decrease</name>
+		<name>parking brake</name>
 		<button>0</button>
-		<x>110</x>
-		<y>0</y>
-		<w>25</w>
-		<h>80</h>
+		<x>-250</x>
+		<y>25</y>
+		<w>30</w>
+		<h>60</h>
 		<binding>
-			<command>property-adjust</command>
-			<property>controls/engines/engine/mixture</property>
-			<step>-0.03</step>
-			<min>0</min>
-			<max>1.0</max>
-			<wrap>false</wrap>
+			<command>property-toggle</command>
+			<property>/controls/gear/brake-parking</property>
 		</binding>
 	</action>
 	<action>
-		<name>small increase</name>
+		<name>Primer</name>
 		<button>0</button>
-		<x>135</x>
-		<y>0</y>
-		<w>25</w>
-		<h>80</h>
+		<x>-250</x>
+		<y>-50</y>
+		<w>30</w>
+		<h>60</h>
 		<binding>
-			<command>property-adjust</command>
-			<property>controls/engines/engine/mixture</property>
-			<step>0.03</step>
-			<min>0</min>
-			<max>1.0</max>
-			<wrap>false</wrap>
+			<command>nasal</command>
+			<script>c150.pumpPrimer();</script>
 		</binding>
 	</action>
 </actions>

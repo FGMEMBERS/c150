@@ -100,6 +100,14 @@ Started May 2005 by Harald Johnsen
     </electrical>
   </systems>
 
+  <flaps>
+   <setting>0.000</setting>
+   <setting>0.250</setting> <!-- Flaps 10 -->
+   <setting>0.500</setting> <!-- Flaps 20 -->
+   <setting>0.750</setting> <!-- Flaps 30 -->
+   <setting>1.000</setting> <!-- Flaps 40 -->
+  </flaps>
+
   <sound>
    <path archive="y">Aircraft/c150/c150-sound.xml</path>
   </sound>
@@ -114,6 +122,15 @@ Started May 2005 by Harald Johnsen
      <name>Ctrl-D</name>
      <desc>open/close selected door</desc>
     </key>
+    <key>
+      <name>O</name>
+      <desc>operate priming pump</desc>
+    </key>
+    <key>
+    <name>Ctrl-I</name>
+      <desc>Show configuration dialog</desc>
+    </key>
+
   </help>
  </sim>
   
@@ -148,10 +165,10 @@ Started May 2005 by Harald Johnsen
  <consumables>
   <fuel>
    <tank n="0">
-    <level-gal_us>13</level-gal_us>
+    <level-gal_us>30</level-gal_us>
    </tank>
    <tank n="1">
-    <level-gal_us>13</level-gal_us>
+    <level-gal_us>30</level-gal_us>
    </tank>
   </fuel>
  </consumables>
@@ -163,7 +180,7 @@ Started May 2005 by Harald Johnsen
    </config>
   </attitude-indicator>
  </instrumentation>
-  
+
  <engines>
   <engine>
    <rpm type="double">400</rpm>
@@ -181,14 +198,14 @@ Started May 2005 by Harald Johnsen
     </binding>
    </key>
 
-   <!-- key n="9">
+   <key n="9">
     <name>Ctrl-I</name>
     <desc>Show configuration dialog</desc>
     <binding>
      <command>nasal</command>
      <script>c150.showDialog()</script>
     </binding>
-   </key -->
+   </key>
 
    <key n="68">
     <name>D</name>
@@ -208,6 +225,18 @@ Started May 2005 by Harald Johnsen
       </binding>
    </key>
 
+   <!-- map keys for priming pump -->
+   <key n="79"> 
+          <name>O</name>
+          <desc>Operate Priming Pump.</desc>
+          <binding> 
+            <command>nasal</command>
+            <script>
+		c150.pumpPrimer();
+	    </script>
+          </binding>
+    </key>
+
   </keyboard>
  </input>
  
@@ -216,5 +245,5 @@ Started May 2005 by Harald Johnsen
     <file>Aircraft/c150/c150.nas</file>
   </c150>
  </nasal>
-  
+
 </PropertyList>

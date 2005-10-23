@@ -30,7 +30,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
 -->
 <PropertyList>
 	<name>c150x 3D Panel</name>
-	<!-- background>Aircraft/c150/Panels/Textures/c150-panel-bg-placement.rgb</background -->
+	<!--background>Aircraft/c150/Panels/Textures/c150-panel-bg-placement.rgb</background-->
 	<background>Aircraft/c150/Panels/Textures/transparent-bg.rgb</background>
 	<w>1300</w>
 	<h>650</h>
@@ -46,41 +46,6 @@ override those by providing <w>..</w> and <h>..</h> properties with the
 			<h>32</h>
 		</instrument -->
 		<!-- engine guage cluster -->
-		<instrument include="../../Instruments/clock.xml">
-			<name>Chronometer</name>
-			<x>323</x>
-			<y>512</y>
-			<w>80</w>
-			<h>80</h>
-		</instrument>
-		<instrument include="../../Instruments/egt.xml">
-			<name>Exhaust Gas Temperature Gauge</name>
-			<x>1106</x>
-			<y>304</y>
-			<w>74</w>
-			<h>74</h>
-		</instrument>
-		<instrument include="../../Instruments/fuel.xml">
-			<name>Fuel Gauge</name>
-			<x>944</x>
-			<y>346</y>
-			<w>74</w>
-			<h>74</h>
-		</instrument>
-		<instrument include="../../Instruments/oil.xml">
-			<name>Oil Gauge</name>
-			<x>1024</x>
-			<y>347</y>
-			<w>74</w>
-			<h>74</h>
-		</instrument>
-		<instrument include="../../Instruments/vacamp.xml">
-			<name>Vacuum Pressure Gauge</name>
-			<x>1210</x>
-			<y>501</y>
-			<w>74</w>
-			<h>74</h>
-		</instrument>
 		<!--
   <instrument include="../../Instruments/single-manifold-pressure.xml">
    <name>Manifold Pressure Gauge</name>
@@ -200,15 +165,10 @@ override those by providing <w>..</w> and <h>..</h> properties with the
 		<instrument include="../../Instruments/adf-radio.xml">
 			<name>ADF Radio</name>
 			<x>766</x>
-			<y>353</y>
+			<y>361</y>
 		</instrument>
 		<!-- end radio stack -->
-		<instrument include="../../Instruments/asi-c172s.xml">
-			<name>NewInstrument</name>
-			<x>84</x>
-			<y>552</y>
-			<w>128</w>
-			<h>128</h></instrument><instrument include="Instruments/arc-rt328.xml">
+		<instrument include="Instruments/arc-rt328.xml">
 			<name>Radio1</name>
 			<x>768</x>
 			<y>584</y></instrument>
@@ -218,5 +178,41 @@ override those by providing <w>..</w> and <h>..</h> properties with the
 			<y>212</y>
 			<w>930</w>
 			<h>168</h></instrument>
+		<instrument include="Instruments/fuel-l-c150.xml">
+			<name>NewInstrument</name>
+			<x>1034</x>
+			<y>424</y>
+			<w>85</w>
+			<h>55</h></instrument>
+		<instrument include="Instruments/fuel-r-c150.xml">
+			<name>NewInstrument</name>
+			<x>1142</x>
+			<y>424</y>
+			<w>85</w>
+			<h>55</h></instrument>
+		<instrument include="Instruments/oil-temp-c150.xml">
+			<name>NewInstrument</name>
+			<x>1142</x>
+			<y>340</y>
+			<w>85</w>
+			<h>55</h></instrument>
+		<instrument include="Instruments/oil-pres-c150.xml">
+			<name>NewInstrument</name>
+			<x>1034</x>
+			<y>340</y>
+			<w>85</w>
+			<h>55</h></instrument>
+		<instrument include="Instruments/clock-c150.xml">
+			<name>NewInstrument</name>
+			<x>322</x>
+			<y>510</y>
+			<w>80</w>
+			<h>80</h></instrument>
+		<instrument include="Instruments/asi-c150.xml">
+			<name>Asi</name>
+			<x>82</x>
+			<y>554</y>
+			<w>128</w>
+			<h>128</h></instrument>
 	</instruments>
 </PropertyList>
