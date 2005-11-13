@@ -165,7 +165,7 @@
   AC_ALPHALIMITS -0.087 0.248
 
   <AXIS NAME="LIFT">
-    <-- CLalpha := 4.600 -->
+    <!-- CLalpha := 4.600 -->
     <COEFFICIENT NAME="CLalpha" TYPE="VECTOR">
       Lift_due_to_alpha
       4
@@ -193,7 +193,7 @@
     </COEFFICIENT>
   </AXIS>
   <AXIS NAME="DRAG">
-    <-- CDalpha := 0.130 -->
+    <!-- CDalpha := 0.130 -->
     <COEFFICIENT NAME="CD0" TYPE="VECTOR">
        Drag_at_zero_lift
        5
@@ -285,7 +285,7 @@
     </COEFFICIENT>
   </AXIS>
   <AXIS NAME="PITCH">
-    <-- check -->
+    <!-- check -->
     <COEFFICIENT NAME="Cmalpha" TYPE="VALUE">
        Pitch_moment_due_to_alpha
        aero/qbar-psf|metrics/Sw-sqft|metrics/cbarw-ft|aero/alpha-rad
