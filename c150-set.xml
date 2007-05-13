@@ -94,6 +94,12 @@ Started May 2005 by Harald Johnsen
    </config>
   </view>
 
+  <view n="6">
+   <config>
+    <target-z-offset-m archive="y" type="double">1.75</target-z-offset-m>
+   </config>
+  </view>
+
   <systems>
     <electrical>
       <path>Aircraft/c150/c150-electrical.xml</path>
