@@ -11,7 +11,7 @@ Started May 2005 by Harald Johnsen
 
  <sim>
 
-  <description>Cessna 150x prototype</description>
+  <description>Cessna 150L</description>
   <author>Harald Johnsen</author>
   <status>alpha</status>
 
@@ -39,8 +39,20 @@ Started May 2005 by Harald Johnsen
       <position-norm type="double">0.0</position-norm>
      </door>
     </doors>
+    <options>
+      <show-yoke type="bool" userarchive="y">true</show-yoke>
+    </options>
+    <instrument>
+      <time-hobbs-meter type="double" userarchive="y">0.0</time-hobbs-meter>
+      <time-tach-meter type="double" userarchive="y">0.0</time-tach-meter>
+    </instrument>
    </c150>
   </model>
+
+  <submodels>
+    <serviceable type="bool">true</serviceable>
+    <path>Aircraft/c150/Models/submodels.xml</path>
+  </submodels>
 
   <!-- hide the 2D panel -->
  
@@ -171,10 +183,10 @@ Started May 2005 by Harald Johnsen
  <consumables>
   <fuel>
    <tank n="0">
-    <level-gal_us>30</level-gal_us>
+    <level-gal_us>11.25</level-gal_us>
    </tank>
    <tank n="1">
-    <level-gal_us>30</level-gal_us>
+    <level-gal_us>11.25</level-gal_us>
    </tank>
   </fuel>
  </consumables>

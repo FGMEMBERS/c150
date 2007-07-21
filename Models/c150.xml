@@ -30,7 +30,7 @@
  <animation>
   <type>range</type>
   <min-m>0</min-m>
-  <max-m>10000</max-m>
+  <max-m>5000</max-m>
  </animation>
 
  <!-- move some objects to bottom of aircraft graph -->
@@ -51,6 +51,72 @@
   <object-name>Propeller.Fast</object-name>
   <object-name>switchGroup</object-name>
  </animation>
+
+ <!--animation>
+  <type>shader</type>
+  <shader>fresnel</shader>
+  <object-name>WindShield</object-name>
+  <object-name>WindowsBack</object-name>
+ </animation-->
+
+ <!--animation>
+  <type>shader</type>
+  <shader>paint</shader>
+  <object-name>WindShield</object-name>
+  <texture>envmap</texture>
+  <ior-prop>/tmp/glassior</ior-prop>
+  <alpha>0.30</alpha>
+ </animation-->
+ <!--animation>
+  <type>shader</type>
+  <shader>paint</shader>
+  <object-name>WindowsBack</object-name>
+  <texture>envmap</texture>
+  <ior-prop>/tmp/glassior</ior-prop>
+  <alpha>0.30</alpha>
+ </animation-->
+
+ <!--animation>
+  <type>shader</type>
+  <shader>paint</shader>
+  <texture>envmap</texture>
+  <object-name>RWing</object-name>
+  <object-name>Fuselage</object-name>
+  <object-name>Fuselage-tail</object-name>
+  <object-name>VTail</object-name>
+  <object-name>HTail</object-name>
+  <object-name>toit</object-name>
+  <ior>1.2</ior>
+ </animation-->
+
+ <!--animation>
+  <type>shader</type>
+  <shader>paint</shader>
+  <texture>envmap</texture>
+  <object-name>WheelStrutL</object-name>
+  <ior>1.2</ior>
+ </animation-->
+ <!--animation>
+  <type>shader</type>
+  <shader>paint</shader>
+  <texture>envmap</texture>
+  <object-name>WheelStrutR</object-name>
+  <ior>1.2</ior>
+ </animation-->
+ <!--animation>
+  <type>shader</type>
+  <shader>paint</shader>
+  <texture>envmap</texture>
+  <object-name>RDoor-ext</object-name>
+  <ior>1.2</ior>
+ </animation-->
+ <!--animation>
+  <type>shader</type>
+  <shader>paint</shader>
+  <texture>envmap</texture>
+  <object-name>LDoor-ext</object-name>
+  <ior>1.2</ior>
+ </animation-->
 
  <animation>
   <type>noshadow</type>
@@ -105,6 +171,15 @@
   <name>MixtureGroup</name>
   <object-name>Mixture</object-name>
   <object-name>MixtureRod</object-name>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>LeftYoke</object-name>
+  <object-name>RightYoke</object-name>
+  <condition>
+   <property>/sim/model/c150/options/show-yoke</property>
+  </condition>
  </animation>
 
  <animation>
@@ -259,7 +334,7 @@
  <animation>
   <type>rotate</type>
   <object-name>Keypart</object-name>
-  <property>instrumentation/slip-skid-ball/indicated-slip-skid</property>
+  <property>/instrumentation/slip-skid-ball/indicated-slip-skid</property>
   <factor>-15.0</factor>
   <offset>0.0</offset>
   <min-deg>-6.0</min-deg>
@@ -383,7 +458,7 @@
  <animation>
   <type>rotate</type>
   <object-name>master-Alt</object-name>
-  <property>/controls/engines/engine[0]/master-alt</property>
+  <property>controls/engines/engine[0]/master-alt</property>
   <factor>-30</factor>
   <axis>
    <x>0.0</x>
@@ -400,7 +475,7 @@
  <animation>
   <type>rotate</type>
   <object-name>master-Bat</object-name>
-  <property>/controls/engines/engine[0]/master-bat</property>
+  <property>controls/engines/engine[0]/master-bat</property>
   <factor>-30</factor>
   <axis>
    <x>0.0</x>
@@ -482,7 +557,7 @@
   <object-name>RightNavLightOn</object-name>
   <object-name>RearNavLightOn</object-name>
   <condition>
-   <property>/sim/model/c150/lighting/nav-lights</property>
+   <property>sim/model/c150/lighting/nav-lights</property>
   </condition>
  </animation>
 
@@ -491,7 +566,7 @@
   <object-name>LeftNavLightOn</object-name>
   <offset-m>5.60</offset-m>
   <axis>
-   <x>2.30</x>
+   <x>2.16</x>
    <y>-4.964</y>
    <z>0.683</z>
   </axis>
@@ -502,7 +577,7 @@
   <object-name>RightNavLightOn</object-name>
   <offset-m>5.60</offset-m>
   <axis>
-   <x>2.30</x>
+   <x>2.16</x>
    <y>4.964</y>
    <z>0.683</z>
   </axis>
@@ -513,9 +588,9 @@
   <object-name>RearNavLightOn</object-name>
   <offset-m>7.35</offset-m>
   <axis>
-   <x>7.35</x>
+   <x>7.30</x>
    <y>0.0</y>
-   <z>1.172</z>
+   <z>1.166</z>
   </axis>
  </animation>
 
@@ -629,6 +704,44 @@
  <!-- Nose Wheel & Strut -->
 
  <animation>
+    <type>translate</type>
+    <object-name>NoseWheel</object-name>
+    <property>gear/gear[0]/compression-norm</property>
+    <factor>0.30</factor>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+  <animation>
+    <type>spin</type>
+    <object-name>NoseWheel</object-name>
+    <property>gear/gear[0]/rollspeed-ms</property>
+    <factor>59.6</factor>
+    <center>
+      <x-m>0.805</x-m>
+      <y-m>0.00</y-m>
+      <z-m>-1.081</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>-1.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+ <animation>
+    <type>translate</type>
+    <object-name>NoseWheelPart</object-name>
+    <property>gear/gear[0]/compression-norm</property>
+    <factor>0.30</factor>
+    <axis>
+      <x>0</x>
+      <y>0</y>
+      <z>1</z>
+    </axis>
+  </animation>
+ <animation>
   <type>rotate</type>
   <object-name>HelperNoseGroup</object-name>
   <property>surface-positions/rudder-pos-norm</property>
@@ -663,33 +776,12 @@
   </axis>
  </animation>
 
- <animation>
-    <type>translate</type>
-    <object-name>NoseWheelPart</object-name>
-    <property>gear/gear[0]/compression-norm</property>
-    <factor>0.15</factor>
-    <axis>
-      <x>0</x>
-      <y>0</y>
-      <z>1</z>
-    </axis>
-  </animation>
- <animation>
-    <type>translate</type>
-    <object-name>NoseWheel</object-name>
-    <property>gear/gear[0]/compression-norm</property>
-    <factor>0.15</factor>
-    <axis>
-      <x>0</x>
-      <y>0</y>
-      <z>1</z>
-    </axis>
-  </animation>
+
  <animation>
     <type>translate</type>
     <object-name>FLdamper</object-name>
     <property>gear/gear[0]/compression-norm</property>
-    <factor>0.15</factor>
+    <factor>0.30</factor>
     <axis>
       <x>0</x>
       <y>0</y>
@@ -700,7 +792,7 @@
     <type>rotate</type>
     <object-name>FLdamper</object-name>
     <property>gear/gear[0]/compression-norm</property>
-    <factor>48</factor>
+    <factor>96</factor>
     <offset-deg>-61</offset-deg>
     <axis>
       <x>0</x>
@@ -717,7 +809,7 @@
     <type>rotate</type>
     <object-name>FUdamper</object-name>
     <property>gear/gear[0]/compression-norm</property>
-    <factor>-48</factor>
+    <factor>-96</factor>
     <offset-deg>64</offset-deg>
     <axis>
       <x>0</x>
@@ -732,10 +824,27 @@
   </animation>
 
   <animation>
+    <type>spin</type>
+    <object-name>LeftWheel</object-name>
+    <property>gear/gear[1]/rollspeed-ms</property>
+    <factor>47.74</factor>
+    <center>
+      <x-m>2.279</x-m>
+      <y-m>1.193</y-m>
+      <z-m>-0.982</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>-1.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+
+  <animation>
     <type>rotate</type>
     <object-name>LWheelGroup</object-name>
     <property>gear/gear[1]/compression-norm</property>
-    <factor>9.0</factor>
+    <factor>18.0</factor>
     <axis>
       <x>-1</x>
       <y>0</y>
@@ -748,10 +857,26 @@
     </center>
   </animation>
   <animation>
+    <type>spin</type>
+    <object-name>RightWheel</object-name>
+    <property>gear/gear[2]/rollspeed-ms</property>
+    <factor>47.74</factor>
+    <center>
+      <x-m>2.279</x-m>
+      <y-m>-1.21</y-m>
+      <z-m>-0.982</z-m>
+    </center>
+    <axis>
+      <x>0.0</x>
+      <y>-1.0</y>
+      <z>0.0</z>
+    </axis>
+  </animation>
+  <animation>
     <type>rotate</type>
     <object-name>RWheelGroup</object-name>
     <property>gear/gear[2]/compression-norm</property>
-    <factor>9.0</factor>
+    <factor>18.0</factor>
     <axis>
       <x>1</x>
       <y>0</y>
@@ -828,9 +953,17 @@
   <property>surface-positions/flap-pos-norm</property>
   <factor>0.113</factor>
   <axis>
-   <x>-0.03</x>
+   <x>-0.04</x>
    <y>0.0</y>
-   <z>-0.109</z>
+   <z>-0.122</z>
+  </axis>
+  <axis>
+   <x1-m>1.763</x1-m>
+   <y1-m>0.489</y1-m>
+   <z1-m>0.534</z1-m>
+   <x2-m>1.725</x2-m>
+   <y2-m>0.489</y2-m>
+   <z2-m>0.412</z2-m>
   </axis>
  </animation>
 
@@ -1110,6 +1243,27 @@
    <y>0.0</y>
    <z>0.0</z>
   </axis>
+ </animation>
+
+ <animation>
+  <type>select</type>
+  <object-name>surtensionlighton</object-name>
+  <condition>
+    <greater-than>
+     <property>sim/model/c150/surtension-light</property>
+     <value>1.0</value>
+    </greater-than>
+  </condition>
+ </animation>
+ <animation>
+  <type>select</type>
+  <object-name>surtensionlightoff</object-name>
+  <condition>
+    <less-than>
+     <property>sim/model/c150/surtension-light</property>
+     <value>1.0</value>
+    </less-than>
+  </condition>
  </animation>
 
 </PropertyList>

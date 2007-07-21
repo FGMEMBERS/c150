@@ -8,9 +8,16 @@ starterN   = props.globals.getNode("controls/engines/engine/starter", 1);
 primerN    = props.globals.getNode("controls/engines/engine/primer", 1);
 MixtureLever = props.globals.getNode("controls/engines/engine[0]/mixture-lever", 1);
 fdmMixture = props.globals.getNode("controls/engines/engine[0]/mixture", 1);
+rpmN       = props.globals.getNode("engines/engine[0]/rpm", 1);
 refTemp    = props.globals.getNode("engines/engine/oil-temperature-degf", 1);
 #refTemp    = props.globals.getNode("engines/engine/egt-degf", 1);
-airTempN   = props.globals.getNode("/environment/temperature-degf", 1);
+airTempN   = props.globals.getNode("environment/temperature-degf", 1);
+voltN      = props.globals.getNode("systems/electrical/outputs/bus[0]", 1);
+altSwN     = props.globals.getNode("controls/engines/engine[0]/master-alt", 1);
+batSwN     = props.globals.getNode("controls/engines/engine[0]/master-bat", 1);
+surtensionN= props.globals.getNode("sim/model/c150/surtension-light", 1);
+hmHobbs    = props.globals.getNode("sim/model/c150/instrument/time-hobbs-meter", 1);
+hmTach     = props.globals.getNode("sim/model/c150/instrument/time-tach-meter", 1);
 
 pumpPrimer = func {
     if (getprop("controls/engines/engine/primer-pump") == 0){
@@ -53,7 +60,6 @@ nav_light_loop = func {
 	settimer(nav_light_loop, 3);
 }
 
-settimer(nav_light_loop, 0);
 
 
 
@@ -66,7 +72,6 @@ init_doors = func {
 		append(doors, aircraft.door.new(d, 2.5));
 	}
 }
-settimer(init_doors, 0);
 
 next_door = func { select_door(active_door + 1) }
 
@@ -141,6 +146,11 @@ showDialog = func {
 #	    w.set("default", 1);
 	    w.set("border", 1);
 		w.set("label", "");
+		if( arg[2] != nil ) {
+			dialog.addChild("text").set("label", arg[2]);
+			dialog.addChild("empty").set("stretch", 1);
+		}
+
 	    w.prop().getNode("binding[0]/command", 1).setValue("nasal");
 	    w.prop().getNode("binding[0]/script", 1).setValue(arg[1]);
 	    w.prop().getNode("binding[1]/command", 1).setValue("dialog-close");
@@ -153,8 +163,10 @@ showDialog = func {
 #		w.prop().getNode("binding[0]/command", 1).setValue("dialog-apply");
 	}
 
-    w = button( "Cold start", "c150.cold_start();" );
-    w = button( "Hot start", "c150.hot_start();" );
+    w = button( "Cold start", "c150.cold_start();" ,
+	"Engine off, all switches off, parking break set");
+    w = button( "Hot start", "c150.hot_start();" , 
+	"Press the space bar to start the engine");
 
 	# lights
 #	w = checkbox("beacons");
@@ -165,6 +177,11 @@ showDialog = func {
 #	w.set("property", "controls/lighting/strobe");
 #	w.prop().getNode("binding[0]/command", 1).setValue("dialog-apply");
 
+
+	# yoke
+	w = checkbox("Show yokes");
+	w.set("property", "sim/model/c150/options/show-yoke");
+	w.prop().getNode("binding[0]/command", 1).setValue("dialog-apply");
 
 	# finale
 	dialog.addChild("empty").set("pref-height", "3");
@@ -184,15 +201,8 @@ calcMixture = func {
     gg = - getprop("/fdm/jsbsim/accelerations/n-pilot-z-norm");
     # compute this value since jsbsim does not export it here
     # need to check the AS or else any bump in terrain will cut the fuel flow
-    if( getprop("/velocities/airspeed-kt") < 30.0 ) {
-        gg = 1.0;
-    }
-    setprop("accelerations/pilot-g", gg);
-
-    g = getprop("accelerations/pilot-g");
-    if (g == nil) {
-	    g = 1.0;
-    }
+    g = 0.9 * getprop("accelerations/pilot-g") + 0.1 * gg;
+    setprop("accelerations/pilot-g", g);
     if (g > 0.75) {
         mixture = 1.0;
     }
@@ -203,13 +213,8 @@ calcMixture = func {
         mixture = 0.0;
     }
     mixture = mixture * MixtureLever.getValue();
-    # use oil temp because engine temp is off at startup
-    # but oil temp is off too because of a 298°K base
     # 298 K == 77 F == 25 C
     engineTemp = refTemp.getValue();
-    # engineTemp is wrong at startup
-#    if( engineTemp < 77 ) {engineTemp = 77);
-    engineTemp = engineTemp - 77 + airTempN.getValue();
     pump = primerN.getValue();
     if( getprop( "engines/engine/running") == 0) {
         if( pump > 7) {
@@ -240,6 +245,40 @@ calcMixture = func {
     fdmMixture.setValue( mixture );
 }
 
+calcEC = func {
+    if( voltN.getValue() <= 8.0 ) {
+        fdmMixture.setValue( 0.0 );
+    }
+    if( !altSwN.getValue() and batSwN.getValue()) {
+        # led test
+        surtensionN.setValue( voltN.getValue() );
+    } else {
+        surtensionN.setValue( 0.0 );
+    }
+}
+
+calcDigits = func( v, prop, ndigit ) {
+    v = int( v );
+    for( var i = 0; i < ndigit ; i=i+1 ) {
+        v2 = int( v / 10 );
+        r = v - v2 * 10;
+        setprop( prop~i, r );
+        v = v2;
+    }
+}
+
+calcHoursMeter = func(dt) {
+    var t = hmHobbs.getValue();
+    if( rpmN.getValue() > 100.0 ) {
+        t = t + dt;
+        hmHobbs.setValue( t );
+    }
+    calcDigits( int(t / 3600), "/instrumentation/hobbs-meter/digits", 6);
+    var q = hmTach.getValue() + dt * rpmN.getValue() / 2566.0;
+    hmTach.setValue( q );
+    calcDigits( int(q / 3600), "/instrumentation/tach-meter/digits", 6);
+}
+
 system_loop = func {
 
     time = getprop("/sim/time/elapsed-sec");
@@ -247,7 +286,8 @@ system_loop = func {
     last_time = time;
 
     calcMixture();
-#	fdmMixture.setValue( MixtureLever.getValue() );
+    calcEC();
+    calcHoursMeter( dt );
 
     ldoorw = 0.0;
     rdoorw = 0.0;
@@ -257,38 +297,40 @@ system_loop = func {
     elsif( getprop("sim/model/c150/doors/door[3]/position-norm") > 0.0 ) { rdoorw += 0.5; }
     setprop("sim/model/c150/doors/doorw", ldoorw + rdoorw);
 
-    computeCompress(dt);
-	settimer(system_loop, 0.1);
+    calcRollSpeed(dt);
+    settimer(system_loop, 0.1);
 }
 
 
 # reset code ========================================================
 cold_start = func {
-    print("cold start");
+	print("cold start");
+	setprop("controls/gear/brake-parking", 1);
+	setprop("accelerations/pilot-g", 1.0);
 	setprop("controls/engines/engine/primer", 0);
 	setprop("controls/engines/engine/primer-pump", 0);
 	MixtureLever.setValue(0.0);
 	fdmMixture.setValue(0.0);
-	setprop("engines/engine/rpm", 0.0);
+	rpmN.setValue( 0.0 );
 	setprop("controls/engines/engine/magnetos", 0);
 	setprop("controls/engines/engine/master-alt", 0);
 	setprop("controls/engines/engine/master-bat", 0);
 	setprop("engines/engine/running", 0);
-    setprop("controls/engines/engine/throttle", 0.0);
+	setprop("controls/engines/engine/throttle", 0.0);
 }
 
 hot_start = func {
 	cold_start();
-    print("hot start");
+	print("hot start");
 	fdmMixture.setValue(1.0);
 	MixtureLever.setValue(1.0);
-	setprop("engines/engine/rpm", 700.0);
+	rpmN.setValue( 700.0 );
 	setprop("controls/engines/engine/magnetos", 3);
 	setprop("controls/engines/engine/master-alt", 1);
 	setprop("controls/engines/engine/master-bat", 1);
 	setprop("controls/engines/engine/primer", 2);
 	setprop("engines/engine/running", 1);
-    setprop("controls/engines/engine/throttle", 0.25);
+	setprop("controls/engines/engine/throttle", 0.5);
 }
 
 # main() ============================================================
@@ -310,108 +352,34 @@ crash = func {
     reset.setIntValue(1);
 }
 
-
 on_menu_reset = func {
 	reset.setIntValue(0);
-	hot_start();
+	cold_start();
+}
+
+calcRollSpeed = func(dt) {
+	mps = getprop("velocities/uBody-fps") * 0.3048;
+	foreach (g; props.globals.getNode("gear").getChildren("gear")) {
+		computeRollSpeedforGear(g, mps, dt);
+	}
+}
+
+computeRollSpeedforGear = func(g, mps, dt) {
+	wow = g.getNode("wow").getValue();
+	if( wow ) {
+		g.getNode("rollspeed-ms").setValue(mps);
+	} else {
+		newspeed = 0.90 * g.getNode("rollspeed-ms").getValue();
+		g.getNode("rollspeed-ms").setValue(newspeed);
+	}
 }
 
 
-INIT = func {
+setlistener("/sim/signals/fdm-initialized", func {
     on_menu_reset();
-
-	settimer(main_loop, 1.0);
-	settimer(system_loop, 1.0);
-}
-
-
-wheels = [
-    [ 0.805, 0, -1.23, 0.0],
-    [ 2.28, 1.10, -1.18, 0.0],
-    [ 2.28, -1.10, -1.18, 0.0]
-];
-
-last_lon = 0.0;
-last_lat = 0.0;
-prev_dist = prev_dt = 1.0;
-
-computeCompress = func(dt) {
-
-    lat = getprop("/position/latitude-deg") * DTOR;
-    lon = getprop("/position/longitude-deg") * DTOR;
-    dstVnormal = [0.0, 0.0, 0.0];
-    dstP = [0.0, 0.0, 0.0, 0.0];
-    wheelPos = [0.0, 0.0, 0.0];
-    cg = [2.10, 0.0, -0.40];
-    h = getprop("/orientation/heading-deg") * DTOR;
-    p = getprop("/orientation/pitch-deg") * DTOR;
-    r = getprop("/orientation/roll-deg") * DTOR;
-    calcVec(dstVnormal, h, p, r);
-
-    alt = getprop("/position/altitude-agl-ft") * 0.3048;
-
-    dstP = [dstVnormal[0], dstVnormal[1], dstVnormal[2], dstVnormal[2] * alt];
-
-    setprop("gear/gear[0]/compression-norm", calcComp(dstP, wheels[0], cg));
-    setprop("gear/gear[1]/compression-norm", calcComp(dstP, wheels[1], cg));
-    setprop("gear/gear[2]/compression-norm", calcComp(dstP, wheels[2], cg));
-    dist = calcDist(last_lat, last_lon, lat, lon);
-
-    setprop("/temp/dist", dist);
-    speed = (dist+prev_dist) / (dt+prev_dt);
-    setprop("/temp/speed-mps", speed);
-    setprop("/temp/speed-mph", speed * 2.2369);
-    prev_dist = dist; prev_dt = dt;
-    last_lon = lon;
-    last_lat = lat;
-}
-
-calcComp = func(Plane, wheelPos, cg) {
-
-    wheel = [wheelPos[0] - cg[0], wheelPos[1] - cg[1], wheelPos[2] - cg[2]];
-    d = sgHeightAbovePlaneVec3(Plane, wheel);
-    if( d > 0 ) {
-        # WoW = False
-        return 0.0;
-    } else {
-        # WoW = True
-        return -d / 0.15;
-    }
-}
-
-calcVec = func(dst, h, p, r) {
-    sh = math.sin(h);
-    ch = math.cos(h);
-    sp = math.sin(p);
-    cp = math.cos(p);
-    sr = math.sin(r);
-    cr = math.cos(r);
-    crsp = cr * sp;
-    dst[0] = (sr * ch + sh * crsp);
-    dst[1] = (sr * sh - crsp * ch);
-    dst[2] = (cr * cp);
-}
-
-sgHeightAbovePlaneVec3 = func(Plane, pnt) {
-    if( Plane[2] == 0.0 ) {
-        return pnt[2];
-    } else {
-        return pnt[2] + (Plane[0] * pnt[0] + Plane[1] * pnt[1] + Plane[3]) / Plane[2];
-    }
-}
-
-asin = func(x) {
-    return math.atan2(x,math.sqrt( (1.0-x)*(1.0-x) ));
-}
-
-calcDist = func(lat1, lon1, lat2, lon2) {
-    tempa = math.sin(  (lat1-lat2)/2  );
-    tempa = tempa * tempa;
-    tempb = math.sin( (lon1-lon2)/2 );
-    tempb = tempb * tempb;
-    dd=2.0 * 
-    asin(   math.sqrt( tempa + math.cos(lat1)*math.cos(lat2) * tempb ) );
-    return dd * 1852.0 * 180.0 / math.pi * 60.0;
-}
-
-settimer(INIT, 0);
+    settimer(main_loop, 1.0);
+    settimer(system_loop, 1.0);
+    settimer(nav_light_loop, 3.0);
+    settimer(init_doors, 0.7);
+    settimer(showDialog, 1.0);
+});
