@@ -40,14 +40,20 @@ Started May 2005 by Harald Johnsen
      </door>
     </doors>
     <options>
-      <show-yoke type="bool" userarchive="y">true</show-yoke>
+      <show-yoke type="bool">true</show-yoke>
     </options>
     <instrument>
-      <time-hobbs-meter type="double" userarchive="y">0.0</time-hobbs-meter>
-      <time-tach-meter type="double" userarchive="y">0.0</time-tach-meter>
+      <time-hobbs-meter type="double">0.0</time-hobbs-meter>
+      <time-tach-meter type="double">0.0</time-tach-meter>
     </instrument>
    </c150>
   </model>
+
+  <aircraft-data>
+   <path>sim/model/c150/options/show-yoke</path>
+   <path>sim/model/c150/instrument/time-hobbs-meter</path>
+   <path>sim/model/c150/instrument/time-tach-meter</path>
+  </aircraft-data>
 
   <submodels>
     <serviceable type="bool">true</serviceable>
