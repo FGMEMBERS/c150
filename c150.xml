@@ -469,7 +469,7 @@
                 <description>Drag_due_to_Elevator_Deflection</description>
                 <product>
                     <property>aero/qbar-psf</property>
-                    <property>metrics/Sw-sqft</property>
+                    <property>metrics/Sh-sqft</property>
                     <abs><property>fcs/elevator-pos-norm</property></abs>
                     <value>0.0300</value>
                 </product>
