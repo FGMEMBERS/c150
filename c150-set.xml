@@ -151,7 +151,7 @@ Started May 2005 by Harald Johnsen
       <desc>operate priming pump</desc>
     </key>
     <key>
-    <name>Ctrl-I</name>
+    <name>=</name>
       <desc>Show configuration dialog</desc>
     </key>
 
@@ -222,8 +222,8 @@ Started May 2005 by Harald Johnsen
     </binding>
    </key>
 
-   <key n="9">
-    <name>Ctrl-I</name>
+   <key n="61">
+    <name>=</name>
     <desc>Show configuration dialog</desc>
     <binding>
      <command>nasal</command>
