@@ -38,7 +38,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
 	<view-height>256</view-height>
 	<instruments>
 		<!-- comical tail number -->
-		<!-- instrument include="../../Instruments/logo.xml">
+		<!-- instrument include="Aircraft/Instruments/logo.xml">
 			<name>Tail Number Plate</name>
 			<x>322</x>
 			<y>605</y>
@@ -47,7 +47,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
 		</instrument -->
 		<!-- engine guage cluster -->
 		<!--
-  <instrument include="../../Instruments/single-manifold-pressure.xml">
+  <instrument include="Aircraft/Instruments/single-manifold-pressure.xml">
    <name>Manifold Pressure Gauge</name>
    <x>279</x>
    <y>69</y>
@@ -57,7 +57,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
 -->
 		<!-- end engine gauges cluster -->
 		<!-- engine controls cluster -->
-		<instrument include="../../Instruments/rpm.xml">
+		<instrument include="Aircraft/Instruments/rpm.xml">
 			<name>RPM Gauge</name>
 			<x>980</x>
 			<y>551</y>
@@ -68,33 +68,33 @@ override those by providing <w>..</w> and <h>..</h> properties with the
 		<!-- controls visual feedback cluster -->
 		<!-- end controls visual feedback cluster -->
 		<!-- sacred six -->
-		<instrument include="../../Instruments/attitude-indicator.xml">
+		<instrument include="Aircraft/Instruments/attitude-indicator.xml">
 			<name>Attitude Gyro</name>
 			<x>216</x>
 			<y>553</y>
 		</instrument>
-		<instrument include="../../Instruments/altimeter.xml">
+		<instrument include="Aircraft/Instruments/altimeter.xml">
 			<name>Altimeter</name>
 			<x>430</x>
 			<y>551</y>
 			<w>128</w>
 			<h>128</h>
 		</instrument>
-		<instrument include="../../Instruments/turn.xml">
+		<instrument include="Aircraft/Instruments/turn.xml">
 			<name>Turn Coordinator</name>
 			<x>91</x>
 			<y>394</y>
 			<w>128</w>
 			<h>128</h>
 		</instrument>
-		<instrument include="../../Instruments/gyro.xml">
+		<instrument include="Aircraft/Instruments/gyro.xml">
 			<name>Directional Gyro</name>
 			<x>214</x>
 			<y>394</y>
 			<w>128</w>
 			<h>128</h>
 		</instrument>
-		<instrument include="../../Instruments/vertical.xml">
+		<instrument include="Aircraft/Instruments/vertical.xml">
 			<name>Vertical Velocity Indicator</name>
 			<x>430</x>
 			<y>392</y>
@@ -103,14 +103,14 @@ override those by providing <w>..</w> and <h>..</h> properties with the
 		</instrument>
 		<!-- end sacred six -->
 		<!-- radio nav instruments -->
-		<instrument include="../../Instruments/nav1.xml">
+		<instrument include="Aircraft/Instruments/nav1.xml">
 			<name>VOR 1 Gauge</name>
 			<x>555</x>
 			<y>551</y>
 			<w>128</w>
 			<h>128</h>
 		</instrument>
-		<instrument include="../../Instruments/nav1.xml">
+		<instrument include="Aircraft/Instruments/nav1.xml">
 			<name>VOR 2 Gauge</name>
 			<params>
 				<nav-to-flag>/instrumentation/nav[1]/to-flag</nav-to-flag>
@@ -126,7 +126,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
 			<w>128</w>
 			<h>128</h>
 		</instrument>
-		<instrument include="../../Instruments/adf.xml">
+		<instrument include="Aircraft/Instruments/adf.xml">
 			<name>ADF Gauge</name>
 			<x>1115</x>
 			<y>551</y>
@@ -136,7 +136,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
 		<!-- end radio nav instruments -->
 		<!-- radio stack -->
 		<!--
-  <instrument include="../../Instruments/dme.xml">
+  <instrument include="Aircraft/Instruments/dme.xml">
    <name>DME Display</name>
    <x>880</x>
    <y>361</y>
@@ -144,7 +144,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
    <h>59</h>
   </instrument>
 -->
-		<!-- instrument include="../../Instruments/markerbeacon.xml">
+		<!-- instrument include="Aircraft/Instruments/markerbeacon.xml">
 			<name>Marker Beacon Indicators</name>
 			<x>504</x>
 			<y>709</y>
@@ -162,7 +162,7 @@ override those by providing <w>..</w> and <h>..</h> properties with the
 			<x>768</x>
 			<y>466</y>
 		</instrument>
-		<instrument include="../../Instruments/adf-radio.xml">
+		<instrument include="Aircraft/Instruments/adf-radio.xml">
 			<name>ADF Radio</name>
 			<x>766</x>
 			<y>361</y>
