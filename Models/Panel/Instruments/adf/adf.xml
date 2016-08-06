@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PropertyList>
+
+ <path>adf.ac</path>
+
+
+  <animation>
+    <object-name>fond</object-name>
+    <object-name>face</object-name>
+    <object-name>needle</object-name>
+    <object-name>avion</object-name>
+  </animation>
+
+ <effect>
+  <inherits-from>Aircraft/c150/Models/Effects/interior/flashlight</inherits-from>
+  <object-name>fond</object-name>
+  <object-name>face</object-name>
+  <object-name>needle</object-name>
+  <object-name>avion</object-name>
+ </effect>
+
+
+  <animation>
+        <type>material</type>
+    <object-name>face</object-name>
+    <object-name>avion</object-name>
+    <object-name>needle</object-name>
+        <emission>
+            <red>1.000</red>
+            <green>0.20</green>
+            <blue>0.000</blue>
+            <factor-prop>/systems/electrical/outputs/instrument-lights-norm</factor-prop>
+        </emission>
+    </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>face</object-name>
+    <property>/instrumentation/adf/rotation-deg[0]</property>
+    <factor>-1</factor>
+    <axis>
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+  <animation>
+    <type>rotate</type>
+    <object-name>needle</object-name>
+    <property>/instrumentation/adf/indicated-bearing-deg</property>
+    <axis>
+      <x> -1 </x>
+      <y>  0 </y>
+      <z>  0 </z>
+    </axis>
+  </animation>
+
+</PropertyList>
+
+

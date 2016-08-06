@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <?xml-stylesheet href="http://jsbsim.sourceforge.net/JSBSim.xsl" type="text/xsl"?>
-<fdm_config name="C150test" version="2.0" release="BETA"
+<fdm_config name="C150L" version="2.0" release="BETA"
  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
  xsi:noNamespaceSchemaLocation="http://jsbsim.sourceforge.net/JSBSim.xsd">
 
     <fileheader>
-        <author> Author Name </author>
-        <filecreationdate> Creation Date </filecreationdate>
+        <author> hjohnsen, rjensen </author>
+        <filecreationdate> 2005/05/15 </filecreationdate>
         <version> Version </version>
-        <description> Models a C150test </description>
+        <description> Models a C150L </description>
     </fileheader>
 
     <metrics>
@@ -51,10 +51,26 @@
         </location>
         <pointmass name="name">
             <weight unit="LBS"> 150 </weight>
-            <location name="POINTMASS" unit="IN">
-                <x> 83.7 </x>
+            <location name="POINTMASS" unit="M">
+                <x> 2.20 </x>
                 <y> 0 </y>
-                <z> -3.14 </z>
+                <z> -0.30 </z>
+            </location>
+        </pointmass>
+        <pointmass name="name">
+            <weight unit="LBS"> 0 </weight>
+            <location name="POINTMASS" unit="M">
+                <x> 2.20 </x>
+                <y> 0 </y>
+                <z> -0.30 </z>
+            </location>
+        </pointmass>
+        <pointmass name="name">
+            <weight unit="LBS"> 0 </weight>
+            <location name="POINTMASS" unit="M">
+                <x> 3.0 </x>
+                <y> 0 </y>
+                <z> -0.30 </z>
             </location>
         </pointmass>
     </mass_balance>
@@ -76,10 +92,10 @@
             <retractable>0</retractable>
         </contact>
         <contact type="BOGEY" name="LEFT_MLG">
-            <location unit="IN">
-                <x> 89.8 </x>
-                <y> -43.3 </y>
-                <z> -46.46 </z>
+            <location unit="M">
+                <x> 2.33099 </x>
+                <y> -1.14064 </y>
+                <z> -1.18377 </z>
             </location>
             <static_friction> 0.8 </static_friction>
             <dynamic_friction> 0.5 </dynamic_friction>
@@ -91,10 +107,10 @@
             <retractable>0</retractable>
         </contact>
         <contact type="BOGEY" name="RIGHT_MLG">
-            <location unit="IN">
-                <x> 89.8 </x>
-                <y> 43.3 </y>
-                <z> -46.46 </z>
+            <location unit="M">
+                <x> 2.33099 </x>
+                <y> 1.14064 </y>
+                <z> -1.18377 </z>
             </location>
             <static_friction> 0.8 </static_friction>
             <dynamic_friction> 0.5 </dynamic_friction>
@@ -105,6 +121,74 @@
             <brake_group> RIGHT </brake_group>
             <retractable>0</retractable>
         </contact>
+        
+        <contact type="STRUCTURE" name="NOSE">
+            <location unit="M">
+                <x> 0.0 </x>
+                <y> 0.0 </y>
+                <z> 0.0619576 </z>
+            </location>
+            <static_friction> 0.5 </static_friction>
+            <dynamic_friction> 0.25 </dynamic_friction>
+            <spring_coeff unit="LBS/FT">       2000 </spring_coeff>
+            <damping_coeff unit="LBS/FT/SEC">   1000 </damping_coeff>
+        </contact>
+        <contact type="STRUCTURE" name="NOSE_BOTTOM">
+            <location unit="M">
+                <x> 0.48664 </x>
+                <y> 0.0 </y>
+                <z> -0.420692 </z>
+            </location>
+            <static_friction> 0.5 </static_friction>
+            <dynamic_friction> 0.25 </dynamic_friction>
+            <spring_coeff unit="LBS/FT">       2000 </spring_coeff>
+            <damping_coeff unit="LBS/FT/SEC">   1000 </damping_coeff>
+        </contact>
+        <contact type="STRUCTURE" name="RUDDER_TOP">
+            <location unit="M">
+                <x> 6.63313 </x>
+                <y> 0.0 </y>
+                <z> 1.19687 </z>
+            </location>
+            <static_friction> 0.5 </static_friction>
+            <dynamic_friction> 0.25 </dynamic_friction>
+            <spring_coeff unit="LBS/FT">       2000 </spring_coeff>
+            <damping_coeff unit="LBS/FT/SEC">   1000 </damping_coeff>
+        </contact>
+        <contact type="STRUCTURE" name="TAIL_SKID">
+            <location unit="M">
+                <x> 6.28476 </x>
+                <y> 0 </y>
+                <z> -0.334408 </z>
+            </location>
+            <static_friction> 0.5 </static_friction>
+            <dynamic_friction> 0.25 </dynamic_friction>
+            <spring_coeff unit="LBS/FT">       2000 </spring_coeff>
+            <damping_coeff unit="LBS/FT/SEC">   1000 </damping_coeff>
+        </contact>
+        <contact type="STRUCTURE" name="LEFT_TIP">
+            <location unit="M">
+                <x> 2.21429 </x>
+                <y> -4.96408 </y>
+                <z> 0.65408 </z>
+            </location>
+            <static_friction> 0.75 </static_friction>
+            <dynamic_friction> 0.5 </dynamic_friction>
+            <spring_coeff unit="LBS/FT">       1830.15 </spring_coeff>
+            <damping_coeff unit="LBS/FT/SEC">   366.03 </damping_coeff>
+        </contact>
+        <contact type="STRUCTURE" name="RIGHT_TIP">
+            <location unit="M">
+                <x> 2.21429 </x>
+                <y> 4.96408 </y>
+                <z> 0.65408 </z>
+            </location>
+            <static_friction> 0.75 </static_friction>
+            <dynamic_friction> 0.5 </dynamic_friction>
+            <spring_coeff unit="LBS/FT">       1830.15 </spring_coeff>
+            <damping_coeff unit="LBS/FT/SEC">   366.03 </damping_coeff>
+        </contact>
+
     </ground_reactions>
     <propulsion>
         <engine file="eng_O-200">
@@ -139,8 +223,9 @@
                 <y> 40 </y>
                 <z> 27.0 </z>
             </location>
-            <capacity unit="LBS"> 42.5 </capacity>
-            <contents unit="LBS"> 10 </contents>
+            <capacity unit="LBS"> 68 </capacity>
+            <contents unit="LBS"> 0 </contents>
+            <density unit="LBS/GAL"> 6.02 </density>            
         </tank>
         <tank type="FUEL">    <!-- Tank number 1 --> 
             <location unit="IN">
@@ -148,8 +233,19 @@
                 <y> -40 </y>
                 <z> 27.0 </z>
             </location>
-            <capacity unit="LBS"> 42.5 </capacity>
-            <contents unit="LBS"> 10 </contents>
+            <capacity unit="LBS"> 68 </capacity>
+            <contents unit="LBS"> 0 </contents>
+            <density unit="LBS/GAL"> 6.02 </density>            
+        </tank>
+        <tank type="FUEL">    <!-- Tank number 2 --> 
+            <location unit="M">
+                <x> 3.0 </x>
+                <y> 0 </y>
+                <z> -0.30 </z>
+            </location>
+            <capacity unit="LBS"> 198 </capacity>
+            <contents unit="LBS"> 0 </contents>
+            <density unit="LBS/GAL"> 6.02 </density>            
         </tank>
     </propulsion>
     <flight_control name="FCS: c150">
@@ -545,10 +641,23 @@
                 <product>
                     <property>aero/qbar-psf</property>
                     <property>metrics/Sw-sqft</property>
-                    <property>fcs/elevator-pos-rad</property>
-                    <value>0.2000</value>
+               <table>
+                  <independentVar>fcs/elevator-pos-deg</independentVar>
+                  <tableData>
+      -26.00	   .1787    
+      -17.00	   .1664    
+      -10.00	   .1138    
+       -5.00	   .5690E-01
+         .00	  -.1138E-03
+        5.00	  -.5690E-01
+        9.00	  -.1024    
+       13.00	  -.1434    
+       17.00	  -.1664    
+                  </tableData>
+               </table>
                 </product>
             </function>
+            
         </axis>
 
         <axis name="ROLL">
