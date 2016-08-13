@@ -19,17 +19,22 @@ var surtensionN= props.globals.getNode("sim/model/c150/surtension-light", 1);
 var hmHobbs    = props.globals.getNode("sim/model/c150/instrument/time-hobbs-meter", 1);
 var hmTach     = props.globals.getNode("sim/model/c150/instrument/time-tach-meter", 1);
 
+controls.startEngine = func(n) {
+setprop("/controls/engines/engine/starter-key", n);
+}
+
 # called from key Shift-o binding and lever pick animation
 var pumpPrimer = func {
     if (getprop("controls/engines/engine/primer-pump") == 0){
         setprop("controls/engines/engine/primer-pump",1);
-        PlaySound("lever", 0.9);
+        # PlaySound("lever_out", 0.9);
     }
     else
     {
         setprop("controls/engines/engine/primer-pump",0);
         pump = primerN.getValue() + 1;
         primerN.setValue( pump );
+        # PlaySound("lever_in", 0.9);
     }
 }
 
@@ -103,7 +108,24 @@ var previous_door = func { select_door(active_door - 1) }
 
 # called from key Ctrl-d binding
 var toggle_door = func {
-    doors[active_door].toggle();
+    if(doors[active_door] == leftWindow) {
+        if( getprop("controls/windows/windowL-angle") < 5 ) {
+            interpolate("controls/windows/windowL-angle", 30, 2.0);
+            doors[active_door].open();
+        } else {
+            interpolate("controls/windows/windowL-angle", 0, 2.0);
+            doors[active_door].close();
+        }
+    } elsif(doors[active_door] == rightWindow) {
+        if( getprop("controls/windows/windowR-angle") < 5 ) {
+            interpolate("controls/windows/windowR-angle", 30, 2.0);
+            doors[active_door].open();
+        } else {
+            interpolate("controls/windows/windowR-angle", 0, 2.0);
+            doors[active_door].close();
+        }
+    } else 
+        doors[active_door].toggle();
 }
 
 
@@ -201,7 +223,7 @@ var calcMixture = func(dt) {
             # up to 6 primer
         } elsif ( engineTemp <= 65 ) {
             # 1 or 2 primer
-            if( pump < 0) {
+            if( pump < 1) {
                 mixture = 0;
             }
         }
@@ -422,6 +444,18 @@ var crashed = props.globals.getNode("sim/crashed", 1);
 var reset = props.globals.getNode("sim/model/c150/reset", 1);
 
 var main_loop = func {
+
+if(getprop("/controls/engines/engine/c150-magnetos") > 3 or getprop("/controls/engines/engine/starter-key") == 1){
+var start = 1;
+}else{
+var start = 0;
+}
+if(start == 1 and getprop("/systems/electrical/volts") > 10){
+        setprop("/controls/engines/engine/starter", 1);
+    }else{
+        setprop("/controls/engines/engine/starter", 0);
+}
+
     if (reset.getValue()) {
         on_menu_reset();
     } elsif (crashed.getValue()) {
