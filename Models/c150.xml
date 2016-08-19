@@ -1,29 +1,8 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
 
 <PropertyList>
 
  <path>cessna150.ac</path>
-
- <panel>
-  <name>MainPanel</name>
-  <path>Aircraft/c150/Panels/c150l-panel.xml</path>
-  <bottom-left>
-   <x-m> 1.665</x-m>
-   <y-m>-0.475</y-m>
-   <z-m>-0.165</z-m>
-  </bottom-left>
-  <bottom-right>
-   <x-m> 1.665</x-m>
-   <y-m> 0.50</y-m>
-   <z-m>-0.165</z-m>
-  </bottom-right>
-  <top-left>
-   <x-m> 1.665</x-m>
-   <y-m>-0.475</y-m>
-   <z-m> 0.272</z-m>
-  </top-left>
-  <depth-test type="bool">true</depth-test>
- </panel>
 
  <!-- LOD for the model as a whole -->
 
@@ -47,34 +26,110 @@
  <animation>
   <type>noshadow</type>
   <object-name>WindShield</object-name>
-  <object-name>WindowsBack</object-name>
+  <object-name>WindowsRear</object-name>
   <object-name>Propeller.Fast</object-name>
   <object-name>switchGroup</object-name>
  </animation>
 
- <!--animation>
-  <type>shader</type>
-  <shader>fresnel</shader>
-  <object-name>WindShield</object-name>
-  <object-name>WindowsBack</object-name>
- </animation-->
+	<!--effect>
+        <inherits-from>Aircraft/c150/Models/Effects/interior/dome-light</inherits-from>
+        <object-name>testplane</object-name>
+        <object-name>newseat</object-name>
+        <object-name>ground</object-name>
+        <object-name>consolenew</object-name>
+        <object-name>LeftYoke</object-name>
+        <object-name>panelbottom</object-name>
+        <object-name>panelmiddle</object-name>
+    </effect-->
 
- <!--animation>
-  <type>shader</type>
-  <shader>paint</shader>
-  <object-name>WindShield</object-name>
-  <texture>envmap</texture>
-  <ior-prop>/tmp/glassior</ior-prop>
-  <alpha>0.30</alpha>
- </animation-->
- <!--animation>
-  <type>shader</type>
-  <shader>paint</shader>
-  <object-name>WindowsBack</object-name>
-  <texture>envmap</texture>
-  <ior-prop>/tmp/glassior</ior-prop>
-  <alpha>0.30</alpha>
- </animation-->
+	<!--effect>
+        <inherits-from>Aircraft/c150/Models/Effects/interior/model-interior-facet</inherits-from>
+        <object-name>panelmiddle</object-name>
+        <object-name>sphere</object-name>
+        <object-name>RdoorInt</object-name>
+    </effect-->
+
+
+	<effect>
+        <inherits-from>Aircraft/c150/Models/Effects/interior/interior-leather</inherits-from>
+        <!--object-name>panelmiddle</object-name-->
+        <object-name>accoudoir</object-name>
+        <object-name>glareshield</object-name>
+    </effect>
+
+	<effect>
+        <inherits-from>Aircraft/c150/Models/Effects/interior/flashlight</inherits-from>
+        <object-name>newSeat</object-name>
+        <object-name>ground</object-name>
+        <object-name>consolenew</object-name>
+        <object-name>LeftYoke</object-name>
+        <object-name>RightYoke</object-name>
+        <object-name>RdoorInt</object-name>
+        <object-name>LdoorInt</object-name>
+        <object-name>panelmiddle</object-name>
+        <object-name>panelbottom</object-name>
+        <object-name>cabin</object-name>
+        <object-name>plancher2</object-name>
+        <object-name>GROUP_InteriorParts</object-name>
+    </effect>
+
+	<effect>
+        <inherits-from>Effects/exterior/exterior-glass-reflection</inherits-from>
+        <object-name>RDoor-glass</object-name>
+        <object-name>WindShield</object-name>
+        <object-name>WindowsRear</object-name>
+        <object-name>vitrejauges</object-name>
+    </effect>
+
+	<effect>
+        <inherits-from>Effects/interior/interior-glass-reflection-front</inherits-from>
+        <object-name>vitrejauges</object-name>
+    </effect>
+
+	<effect>
+        <inherits-from>Effects/exterior/fuselage</inherits-from>
+        <object-name>LeftFlap</object-name>
+        <object-name>RightFlap</object-name>
+        <object-name>LeftAileron</object-name>
+        <object-name>RightAileron</object-name>
+        <object-name>HTail</object-name>
+        <object-name>LeftElevator</object-name>
+        <object-name>RightElevator</object-name>
+        <object-name>ElevatorTrimTab</object-name>
+        <object-name>WheelStrutL</object-name>
+        <object-name>WheelStrutR</object-name>
+        <object-name>Propeller</object-name>
+        <object-name>RDoor-ext</object-name>
+        <object-name>LDoor-ext</object-name>
+        <object-name>NoseProp</object-name>
+        <object-name>AccessPanel</object-name>
+        
+        <object-name>toit</object-name>
+        <object-name>Fuselage</object-name>
+        <object-name>Fuselage-tail</object-name>
+        <object-name>VTail</object-name>
+        <object-name>Rudder</object-name>
+        <object-name>RWing</object-name>
+        <object-name>LWing</object-name>
+        <object-name>wingfix</object-name>
+        <object-name>charnierefixe</object-name>
+        <object-name>LDoor-charniere</object-name>
+        <object-name>RDoor-charniere</object-name>
+        
+    </effect>
+
+	<!--effect>
+        <inherits-from>Effects/exterior/fuselage-bump</inherits-from>
+        <object-name>Fuselage</object-name>
+        <object-name>Fuselage-tail</object-name>
+        <object-name>VTail</object-name>
+        <object-name>Rudder</object-name>
+        <object-name>RWing</object-name>
+        <object-name>LWing</object-name>
+        <object-name>wingfix</object-name>
+    </effect-->
+
+
 
  <!--animation>
   <type>shader</type>
@@ -120,28 +175,12 @@
 
  <animation>
   <type>noshadow</type>
-  <object-name>Ldoorglass</object-name>
+  <object-name>LDoor-glass</object-name>
  </animation>
 
  <animation>
   <type>noshadow</type>
-  <object-name>Rdoorglass</object-name>
- </animation>
-
- <animation>
-  <type>rotate</type>
-  <object-name>Ring</object-name>
-  <property>/instrumentation/magnetic-compass/indicated-heading-deg</property>
-  <axis>
-   <x>0.0</x>
-   <y>0.0</y>
-   <z>1.0</z>
-  </axis>
-  <center>
-   <x-m>1.627</x-m>
-   <y-m>0.0</y-m>
-   <z-m>0.547</z-m>
-  </center>
+  <object-name>RDoor-glass</object-name>
  </animation>
 
 
@@ -154,19 +193,6 @@
 <!-- Controls -->
 
  
- <animation>
-  <name>CarbHeatGroup</name>
-  <object-name>CarbHeat</object-name>
-  <object-name>CarbHeatBack</object-name>
-  <object-name>CarbHeatRod</object-name>
- </animation>
-
- <animation>
-  <name>ThrottleGroup</name>
-  <object-name>Throttle</object-name>
-  <object-name>ThrottleRod</object-name>
- </animation>
-
  <animation>
   <name>MixtureGroup</name>
   <object-name>Mixture</object-name>
@@ -187,7 +213,7 @@
   <object-name>LeftYoke</object-name>
   <object-name>RightYoke</object-name>
   <property>controls/flight/elevator</property>
-  <factor>-0.03</factor>
+  <factor>-0.08</factor>
   <axis>
    <x>1.0</x>
    <y>0.0</y>
@@ -195,196 +221,430 @@
   </axis>
  </animation>
 
- <animation>
-  <type>rotate</type>
-  <object-name>LeftYoke</object-name>
-  <property>controls/flight/aileron</property>
-  <factor>-45</factor>
-  <center>
-   <x-m>1.80</x-m>
-   <y-m>-0.250</y-m>
-   <z-m>0.10</z-m>
-  </center>
-  <axis>
-   <x>1.0</x>
-   <y>0.0</y>
-   <z>0.0</z>
-  </axis>
- </animation>
+    <animation>
+        <type>rotate</type>
+        <object-name>LeftYoke</object-name>
+        <property>controls/flight/aileron</property>
+        <factor>-90</factor>
+        <center>
+            <x-m>1.55628</x-m>
+            <y-m>-0.237289</y-m>
+            <z-m>0.0907367</z-m>
+        </center>
+        <axis>
+            <x>1.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
 
- <animation>
-  <type>rotate</type>
-  <object-name>RightYoke</object-name>
-  <property>controls/flight/aileron</property>
-  <factor>-45</factor>
-  <center>
-   <x-m>1.80</x-m>
-   <y-m>0.259</y-m>
-   <z-m>0.10</z-m>
-  </center>
-  <axis>
-   <x>1.0</x>
-   <y>0.0</y>
-   <z>0.0</z>
-  </axis>
- </animation>
+    <animation>
+        <type>rotate</type>
+        <object-name>RightYoke</object-name>
+        <property>controls/flight/aileron</property>
+        <factor>-90</factor>
+        <center>
+            <x-m>1.55628</x-m>
+            <y-m>0.255557</y-m>
+            <z-m>0.0907367</z-m>
+        </center>
+        <axis>
+            <x>1.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
 
- <animation>
-  <type>translate</type>
-  <object-name>CarbHeatGroup</object-name>
-  <property>controls/anti-ice/engine[0]/carb-heat</property>
-  <factor>-0.03</factor>
-  <axis>
-   <x>1.0</x>
-   <y>0.0</y>
-   <z>0.0</z>
-  </axis>
- </animation>
+    <animation>
+        <type>pick</type>
+        <object-name>YokeMount</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>sim/model/c150/options/show-yoke</property>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>show-hide-yoke</tooltip-id>
+                <label>Show/Hide Yoke</label>
+            </binding>
+        </hovered>
+    </animation>
 
- <animation>
-  <type>translate</type>
-  <object-name>ThrottleGroup</object-name>
-  <property>controls/engines/engine[0]/throttle</property>
-  <factor>-0.09</factor>
-  <axis>
-   <x>1.0</x>
-   <y>0.0</y>
-   <z>0.0</z>
-  </axis>
- </animation>
 
- <animation>
-  <type>translate</type>
-  <object-name>MixtureGroup</object-name>
-  <property>controls/engines/engine[0]/mixture-lever</property>
-  <factor>-0.09</factor>
-  <axis>
-   <x>1.0</x>
-   <y>0.0</y>
-   <z>0.0</z>
-  </axis>
- </animation>
+    <animation>
+        <type>translate</type>
+        <object-name>CarbHeat</object-name>
+        <property>controls/anti-ice/engine[0]/carb-heat</property>
+        <factor>0.04</factor>
+        <axis>
+            <x>1.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+    <animation>
+        <type>pick</type>
+        <object-name>CarbHeat</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/anti-ice/engine[0]/carb-heat</property>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>carburetor-heat</tooltip-id>
+                <label>Carburetor: %s</label>
+                <mapping>nasal</mapping>
+                <property>controls/anti-ice/engine[0]/carb-heat</property>
+                <script>
+                    var modes = ['COLD', 'HEATED'];
+                    return modes[arg[0]];
+                </script>
+            </binding>
+        </hovered>
+    </animation>
 
- <animation>
-  <type>rotate</type>
-  <property>controls/flight/flaps</property>
-  <object-name>FlapSwitch</object-name>
-  <factor>60</factor>
-  <offset-deg>-30</offset-deg>
-  <axis>
-   <x>0.0</x>
-   <y>1.0</y>
-   <z>0.0</z>
-  </axis>
-  <center>
-   <x-m>1.66</x-m>
-   <y-m>0.00</y-m>
-   <z-m>0.00</z-m>
-  </center>
- </animation>  
+    <animation>
+        <type>translate</type>
+        <object-name>Throttle</object-name>
+        <property>controls/engines/engine[0]/throttle</property>
+        <factor>-0.08</factor>
+        <axis>
+            <x>1.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+    <animation>
+        <type>slider</type>
+        <object-name>Throttle</object-name>
+        <object-name>ThrottleMount</object-name>
+        <visible>true</visible>
+        <drag-direction>vertical</drag-direction>
+        <action>
+            <binding>
+                <command>property-adjust</command>
+                <property>controls/engines/engine[0]/throttle</property>
+                <factor>0.05</factor>
+                <min>0</min>
+                <max>1</max>
+                <wrap>0</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <label>Throttle: %3d%%</label>
+                <measure-text>Throttle: 100%</measure-text>
+                <tooltip-id>throttle</tooltip-id>
+                <mapping>percent</mapping>
+                <property>controls/engines/engine[0]/throttle</property>
+            </binding>
+        </hovered>
+    </animation>
 
- <animation>
-  <type>rotate</type>
-  <object-name>TrimWheel</object-name>
-  <property>controls/flight/elevator-trim</property>
-  <factor>-360</factor>
-  <axis>
-   <x>0.0</x>
-   <y>1.0</y>
-   <z>0.0</z>
-  </axis>
-  <center>
-   <x-m>1.635</x-m>
-   <y-m>-0.04</y-m>
-   <z-m>-0.087</z-m>
-  </center>
- </animation>  
- <animation>
-  <type>rotate</type>
-  <object-name>TrimPos</object-name>
-  <property>controls/flight/elevator-trim</property>
-  <factor>-180</factor>
-  <axis>
-   <x>0.0</x>
-   <y>1.0</y>
-   <z>0.0</z>
-  </axis>
-  <center>
-   <x-m>1.635</x-m>
-   <y-m>-0.04</y-m>
-   <z-m>-0.087</z-m>
-  </center>
- </animation>  
+    <animation>
+        <type>translate</type>
+        <object-name>Mixture</object-name>
+        <property>controls/engines/engine[0]/mixture-lever</property>
+        <factor>-0.075</factor>
+        <axis>
+            <x>1.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+    <animation>
+        <type>slider</type>
+        <object-name>Mixture</object-name>
+        <object-name>MixtureMount</object-name>
+        <visible>true</visible>
+        <drag-direction>vertical</drag-direction>
+        <action>
+            <binding>
+                <command>property-adjust</command>
+                <property>controls/engines/engine[0]/mixture-lever</property>
+                <factor>0.05</factor>
+                <min>0</min>
+                <max>1</max>
+                <wrap>0</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <label>Mixture: %3d%%</label>
+                <measure-text>Mixture: 100%</measure-text>
+                <tooltip-id>mixture</tooltip-id>
+                <mapping>percent</mapping>
+                <property>controls/engines/engine[0]/mixture-lever</property>
+            </binding>
+        </hovered>
+    </animation>
 
- <animation>
-  <type>rotate</type>
-  <object-name>Key</object-name>
-  <property>controls/engines/engine[0]/magnetos</property>
-  <factor>-30</factor>
-  <offset>-45</offset>
-  <axis>
-   <x1-m>1.656</x1-m>
-   <y1-m>-0.353</y1-m>
-   <z1-m>-0.000</z1-m>
-   <x2-m>1.679</x2-m>
-   <y2-m>-0.353</y2-m>
-   <z2-m>0.005</z2-m>
-  </axis>
- </animation>  
- <animation>
-  <type>rotate</type>
-  <object-name>Keypart</object-name>
-  <property>/instrumentation/slip-skid-ball/indicated-slip-skid</property>
-  <factor>-15.0</factor>
-  <offset>0.0</offset>
-  <min-deg>-6.0</min-deg>
-  <max-deg>6.0</max-deg>
-  <axis>
-   <x>1.0</x>
-   <y>0.0</y>
-   <z>0.0</z>
-  </axis>
-  <center>
-   <x-m>1.680</x-m>
-   <y-m>-0.353</y-m>
-   <z-m>0.005</z-m>
-  </center>
- </animation>  
+
+    <animation>
+        <type>knob</type>
+        <property>controls/flight/flaps</property>
+        <object-name>FlapSwitch</object-name>
+        <drag-direction>vertical</drag-direction>
+        <factor>60</factor>
+        <offset-deg>-30</offset-deg>
+        <axis>
+            <x>0.0</x>
+            <y>1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>1.66</x-m>
+            <y-m>0.00</y-m>
+            <z-m>0.00</z-m>
+        </center>
+        <increase>
+            <binding>
+                <command>nasal</command>
+                <script>controls.flapsDown(-1)</script>
+            </binding>
+        </increase>
+        <decrease>
+            <binding>
+                <command>nasal</command>
+                <script>controls.flapsDown(1)</script>
+            </binding>
+        </decrease>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <label>Flaps pos: %s</label>
+                <tooltip-id>flaps-pos</tooltip-id>
+                <property>controls/flight/flaps</property>
+                <mapping>nasal</mapping>
+                <script>
+                    <![CDATA[
+                        var m = arg[0];
+                        if (m < 0.01) return '0°';
+                        if (m < 0.251) return '10°';
+                        if (m < 0.501) return '20°';
+                        if (m < 0.751) return '30°';
+                        return '40°';
+                    ]]>
+                </script>
+            </binding>
+        </hovered>
+    </animation>
+
+    <animation>
+        <type>knob</type>
+        <object-name>TrimWheel</object-name>
+        <property>controls/flight/elevator-trim</property>
+        <factor>-360</factor>
+        <drag-direction>vertical</drag-direction>
+        <axis>
+            <x>0.0</x>
+            <y>1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>1.63127</x-m>
+            <y-m>-0.0530339</y-m>
+            <z-m>-0.111442</z-m>
+        </center>
+        <action>
+            <binding>
+                <command>property-adjust</command>
+                <property>controls/flight/elevator-trim</property>
+                <factor>0.01</factor>
+                <min>-0.25</min>
+                <max>0.25</max>
+                <wrap>0</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <label>Elevator trim: %3f</label>
+                <tooltip-id>pitch-trim</tooltip-id>
+                <property>controls/flight/elevator-trim</property>
+            </binding>
+        </hovered>
+    </animation>  
+
+    <animation>
+        <type>rotate</type>
+        <object-name>TrimPos</object-name>
+        <property>controls/flight/elevator-trim</property>
+        <factor>-90</factor>
+        <axis>
+            <x>0.0</x>
+            <y>1.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>1.63521</x-m>
+            <y-m>-0.0685188</y-m>
+            <z-m>-0.101499</z-m>
+        </center>
+    </animation>  
+
+ <!-- key / magnetos / starter -->
+ 
+    <animation>
+        <type>knob</type>
+        <object-name>Key</object-name>
+
+        <expression>
+            <sum>
+                <product><sum>
+                        <property>controls/engines/engine[0]/c150-magnetos</property>
+                        <property>controls/engines/engine[0]/starter-key</property></sum>
+                    <value>30</value>
+                </product>
+                <value>-70</value>
+            </sum>
+        </expression>
+        <axis>
+            <x1-m>1.6754</x1-m>
+            <y1-m>-0.370194</y1-m>
+            <z1-m>-0.000136885</z1-m>
+            <x2-m>1.56841</x2-m>
+            <y2-m>-0.370193</y2-m>
+            <z2-m>-0.0170814</z2-m>
+        </axis>
+
+        <action>
+            <name>Engine Start</name>
+            <binding>
+                <command>property-assign</command>
+                <property>/controls/engines/engine[0]/starter-switch</property>
+                <value type="bool">true</value>
+                <condition>
+                    <greater-than>
+                        <property>controls/engines/engine[0]/c150-magnetos</property>
+                        <value>3</value>
+                    </greater-than>
+                </condition>
+            </binding>
+
+            <binding>
+                <command>property-adjust</command>
+                <property>controls/engines/engine[0]/c150-magnetos</property>
+                <factor>1</factor>
+                <min>0</min>
+                <max>4</max>
+            </binding>
+        </action>
+        <release>
+            <binding>
+                <condition>
+                    <greater-than>
+                        <property>controls/engines/engine[0]/c150-magnetos</property>
+                        <value>3</value>
+                    </greater-than>
+                </condition>
+                <command>nasal</command>
+                <script>setprop("/controls/engines/engine[0]/starter-switch", 0);
+                        setprop("controls/engines/engine[0]/c150-magnetos", 3);
+                </script>
+            </binding>
+        </release>
+
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>magneto-switch</tooltip-id>
+                <label>Magnetos: %s</label>
+                <property>controls/engines/engine[0]/c150-magnetos</property>
+                <mapping>nasal</mapping>
+                <script>
+                    var m = arg[0];
+                    if (m == 1) return 'RIGHT';
+                    if (m == 2) return 'LEFT';
+                    if (m == 3) return 'BOTH';
+                    if (m == 4) return 'START !';
+                    return 'OFF';
+                </script>
+            </binding>
+        </hovered>
+    </animation>
+  <!--  <animation>
+        <type>rotate</type>
+        <object-name>Key</object-name>
+
+        <property>controls/engines/engine[0]/starter-key</property>
+        
+        <factor>120</factor>
+        <axis>
+            <x1-m>1.6754</x1-m>
+            <y1-m>-0.370194</y1-m>
+            <z1-m>-0.000136885</z1-m>
+            <x2-m>1.56841</x2-m>
+            <y2-m>-0.370193</y2-m>
+            <z2-m>-0.0170814</z2-m>
+        </axis>
+    </animation>-->
+
+    <animation>
+        <type>rotate</type>
+        <object-name>Keypart</object-name>
+        <property>/instrumentation/slip-skid-ball/indicated-slip-skid</property>
+        <factor>-15.0</factor>
+        <offset>0.0</offset>
+        <min-deg>-15.0</min-deg>
+        <max-deg>15.0</max-deg>
+        <axis>
+            <x>1.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </axis>
+        <center>
+            <x-m>1.690</x-m>
+            <y-m>-0.370</y-m>
+            <z-m>0.005</z-m>
+        </center>
+    </animation>  
+
 
  <!-- Light switch -->
 
- <animation>
-  <type>rotate</type>
-  <object-name>TaxiLightSwitch</object-name>
-  <property>controls/lighting/taxi-light</property>
-  <factor>-30</factor>
-  <axis>
-   <x>0.0</x>
-   <y>1.0</y>
-   <z>0.0</z>
-  </axis>
-  <center>
-   <x-m>1.66</x-m>
-   <y-m>0</y-m>
-   <z-m>0.01</z-m>
-  </center>
- </animation>
+    <animation>
+        <type>rotate</type>
+        <object-name>TaxiLightSwitch</object-name>
+        <property>controls/lighting/taxi-light</property>
+        <factor>-30</factor>
+        <axis>
+            <x1-m>1.666</x1-m>
+            <y1-m>-0.234</y1-m>
+            <z1-m>-0.000</z1-m>
+            <x2-m>1.666</x2-m>
+            <y2-m>-0.110</y2-m>
+            <z2-m>-0.000</z2-m>
+        </axis>
+    </animation>
  
  <animation>
   <type>rotate</type>
   <object-name>LandingLightSwitch</object-name>
   <property>controls/lighting/landing-lights</property>
   <factor>-30</factor>
-  <axis>
-   <x>0.0</x>
-   <y>1.0</y>
-   <z>0.0</z>
-  </axis>
-  <center>
-   <x-m>1.66</x-m>
-   <y-m>0</y-m>
-   <z-m>0.01</z-m>
-  </center>
+        <axis>
+            <x1-m>1.666</x1-m>
+            <y1-m>-0.234</y1-m>
+            <z1-m>-0.000</z1-m>
+            <x2-m>1.666</x2-m>
+            <y2-m>-0.110</y2-m>
+            <z2-m>-0.000</z2-m>
+        </axis>
  </animation>
 
  <animation>
@@ -392,16 +652,14 @@
   <object-name>PitotHeatSwitch</object-name>
   <property>controls/anti-ice/pitot-heat</property>
   <factor>-30</factor>
-  <axis>
-   <x>0.0</x>
-   <y>1.0</y>
-   <z>0.0</z>
-  </axis>
-  <center>
-   <x-m>1.66</x-m>
-   <y-m>0</y-m>
-   <z-m>0.01</z-m>
-  </center>
+        <axis>
+            <x1-m>1.666</x1-m>
+            <y1-m>-0.234</y1-m>
+            <z1-m>-0.000</z1-m>
+            <x2-m>1.666</x2-m>
+            <y2-m>-0.110</y2-m>
+            <z2-m>-0.000</z2-m>
+        </axis>
  </animation>
 
  <animation>
@@ -409,16 +667,14 @@
   <object-name>NavLightSwitch</object-name>
   <property>controls/lighting/nav-lights</property>
   <factor>-30</factor>
-  <axis>
-   <x>0.0</x>
-   <y>1.0</y>
-   <z>0.0</z>
-  </axis>
-  <center>
-   <x-m>1.66</x-m>
-   <y-m>0</y-m>
-   <z-m>0.01</z-m>
-  </center>
+        <axis>
+            <x1-m>1.666</x1-m>
+            <y1-m>-0.234</y1-m>
+            <z1-m>-0.000</z1-m>
+            <x2-m>1.666</x2-m>
+            <y2-m>-0.110</y2-m>
+            <z2-m>-0.000</z2-m>
+        </axis>
  </animation>
 
  <animation>
@@ -426,16 +682,14 @@
   <object-name>BeaconSwitch</object-name>
   <property>controls/lighting/beacon</property>
   <factor>-30</factor>
-  <axis>
-   <x>0.0</x>
-   <y>1.0</y>
-   <z>0.0</z>
-  </axis>
-  <center>
-   <x-m>1.66</x-m>
-   <y-m>0</y-m>
-   <z-m>0.01</z-m>
-  </center>
+        <axis>
+            <x1-m>1.666</x1-m>
+            <y1-m>-0.234</y1-m>
+            <z1-m>-0.000</z1-m>
+            <x2-m>1.666</x2-m>
+            <y2-m>-0.110</y2-m>
+            <z2-m>-0.000</z2-m>
+        </axis>
  </animation>
 
  <animation>
@@ -443,16 +697,14 @@
   <object-name>StrobeSwitch</object-name>
   <property>controls/lighting/strobe</property>
   <factor>-30</factor>
-  <axis>
-   <x>0.0</x>
-   <y>1.0</y>
-   <z>0.0</z>
-  </axis>
-  <center>
-   <x-m>1.66</x-m>
-   <y-m>0</y-m>
-   <z-m>0.01</z-m>
-  </center>
+        <axis>
+            <x1-m>1.666</x1-m>
+            <y1-m>-0.234</y1-m>
+            <z1-m>-0.000</z1-m>
+            <x2-m>1.666</x2-m>
+            <y2-m>-0.110</y2-m>
+            <z2-m>-0.000</z2-m>
+        </axis>
  </animation>
 
  <animation>
@@ -465,11 +717,11 @@
    <y>1.0</y>
    <z>0.0</z>
   </axis>
-  <center>
-   <x-m>1.67</x-m>
-   <y-m>0</y-m>
-   <z-m>-0.04</z-m>
-  </center>
+    <center>
+        <x-m>1.676</x-m>
+        <y-m>-0.395</y-m>
+        <z-m>-0.054</z-m>
+    </center>
  </animation>
 
  <animation>
@@ -482,16 +734,605 @@
    <y>1.0</y>
    <z>0.0</z>
   </axis>
-  <center>
-   <x-m>1.67</x-m>
-   <y-m>0</y-m>
-   <z-m>-0.04</z-m>
-  </center>
+    <center>
+        <x-m>1.676</x-m>
+        <y-m>-0.395</y-m>
+        <z-m>-0.054</z-m>
+    </center>
  </animation>
 
+    <!-- Panel light knob -->
+    <animation>
+        <type>knob</type>
+        <object-name>panel-light-knob</object-name>
+        <property>controls/lighting/instruments-norm</property>
+        <factor>180</factor>
+        <axis>
+        <x>-1</x>
+        </axis>
+        <center>
+            <x-m>1.67533</x-m>
+            <y-m>-0.319787</y-m>
+            <z-m>-0.00337601</z-m>
+        </center>
+
+        <action>
+        <repeatable>true</repeatable>
+        <binding>
+          <command>property-adjust</command>
+          <property>controls/lighting/instruments-norm</property>
+          <factor>0.05</factor>
+          <min>0</min>
+          <max>1.0</max>
+          <wrap>0</wrap>
+        </binding>
+        </action>
+
+        <hovered>
+        <binding>
+          <command>set-tooltip</command>
+          <tooltip-id>lighting-brightness</tooltip-id>
+          <label>Instrument Lighting: %3d%%</label>
+          <property>controls/lighting/instruments-norm</property>
+          <mapping>percent</mapping>
+        </binding>
+        </hovered>
+    </animation>
+
+    <!-- Pick animation for switches -->
+    <animation>
+        <type>pick</type>
+        <object-name>LandingLightSwitch</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/lighting/landing-lights</property>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>c150.PlaySound("click-panel")</script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>landing-light-switch</tooltip-id>
+                <label>Landing Lights: %s</label>
+                <mapping>on-off</mapping>
+                <property>controls/lighting/landing-lights</property>
+            </binding>
+        </hovered>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>TaxiLightSwitch</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/lighting/taxi-light</property>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>c150.PlaySound("click-panel")</script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>taxi-light-switch</tooltip-id>
+                <label>Taxi Light: %s</label>
+                <mapping>on-off</mapping>
+                <property>controls/lighting/taxi-light</property>
+            </binding>
+        </hovered>
+    </animation>
+    <animation>
+        <type>pick</type>
+        <object-name>StrobeSwitch</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/lighting/strobe</property>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>c150.PlaySound("click-panel")</script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>strobe-switch</tooltip-id>
+                <label>Strobe: %s</label>
+                <mapping>on-off</mapping>
+                <property>controls/lighting/strobe</property>
+            </binding>
+        </hovered>
+    </animation>
+
+
+    <animation>
+        <type>pick</type>
+        <object-name>BeaconSwitch</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/lighting/beacon</property>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>c150.PlaySound("click-panel")</script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>beacon-switch</tooltip-id>
+                <label>Beacon: %s</label>
+                <mapping>on-off</mapping>
+                <property>controls/lighting/beacon</property>
+            </binding>
+        </hovered>
+    </animation>
+    <animation>
+        <type>pick</type>
+        <object-name>NavLightSwitch</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/lighting/nav-lights</property>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>c150.PlaySound("click-panel")</script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>nav-light-switch</tooltip-id>
+                <label>Navigation Lights: %s</label>
+                <mapping>on-off</mapping>
+                <property>controls/lighting/nav-lights</property>
+            </binding>
+        </hovered>
+    </animation>
+    <animation>
+        <type>pick</type>
+        <object-name>PitotHeatSwitch</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/anti-ice/pitot-heat</property>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>c150.PlaySound("click-panel")</script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>pitot-heat</tooltip-id>
+                <label>Pitot Heat: %s</label>
+                <mapping>on-off</mapping>
+                <property>controls/anti-ice/pitot-heat</property>
+            </binding>
+        </hovered>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>master-Bat</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/engines/engine[0]/master-bat</property>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>c150.PlaySound("click-panel")</script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>master-switch</tooltip-id>
+                <label>Battery: %s</label>
+                <mapping>on-off</mapping>
+                <property>controls/engines/engine[0]/master-bat</property>
+            </binding>
+        </hovered>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>master-Alt</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/engines/engine[0]/master-alt</property>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>c150.PlaySound("click-panel")</script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>alt-switch</tooltip-id>
+                <label>Alt: %s</label>
+                <mapping>on-off</mapping>
+                <property>controls/engines/engine[0]/master-alt</property>
+            </binding>
+        </hovered>
+    </animation>
+    
+    <!--Breakers-->
+<!--    <animation>
+        <type>pick</type>
+        <object-name>landingltbreaker</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/circuit-breakers/landing</property>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>c150.PlaySound("click-panel")</script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>landing-breaker</tooltip-id>
+                <label>Landing Light Breaker: %s</label>
+                <mapping>on-off</mapping>
+                <property>controls/circuit-breakers/landing</property>
+            </binding>
+        </hovered>
+    </animation>
+    <animation>
+        <type>translate</type>
+        <object-name>landingltbreaker</object-name>
+        <property>controls/circuit-breakers/landing</property>
+        <offset-m>0.01</offset-m>
+        <factor>-0.01</factor>
+        <axis>
+            <x>1</x>
+        </axis>
+    </animation>
+    <animation>
+        <type>pick</type>
+        <object-name>flapbreaker</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/circuit-breakers/flaps</property>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>c150.PlaySound("click-panel")</script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>flaps-breaker</tooltip-id>
+                <label>Flaps Breaker: %s</label>
+                <mapping>on-off</mapping>
+                <property>controls/circuit-breakers/flaps</property>
+            </binding>
+        </hovered>
+    </animation>
+    <animation>
+        <type>translate</type>
+        <object-name>flapbreaker</object-name>
+                <property>controls/circuit-breakers/flaps</property>
+        <offset-m>0.01</offset-m>
+        <factor>-0.01</factor>
+        <axis>
+            <x>1</x>
+        </axis>
+    </animation>
+    <animation>
+        <type>pick</type>
+        <object-name>strobebreaker</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/circuit-breakers/strobe</property>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>c150.PlaySound("click-panel")</script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>strobe-breaker</tooltip-id>
+                <label>Strobe Light Breaker: %s</label>
+                <mapping>on-off</mapping>
+                <property>controls/circuit-breakers/strobe</property>
+            </binding>
+        </hovered>
+    </animation>
+    <animation>
+        <type>translate</type>
+        <object-name>strobebreaker</object-name>
+                <property>controls/circuit-breakers/strobe</property>
+        <offset-m>0.01</offset-m>
+        <factor>-0.01</factor>
+        <axis>
+            <x>1</x>
+        </axis>
+    </animation>
+    <animation>
+        <type>pick</type>
+        <object-name>bcnpithtbreaker</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/circuit-breakers/beacon</property>
+            </binding>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/circuit-breakers/pitotht</property>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>c150.PlaySound("click-panel")</script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>strobe-breaker</tooltip-id>
+                <label>Beacon and Pitot Heat Breaker: %s</label>
+                <mapping>on-off</mapping>
+                <property>controls/circuit-breakers/beacon</property>
+            </binding>
+        </hovered>
+    </animation>
+    <animation>
+        <type>translate</type>
+        <object-name>bcnpithtbreaker</object-name>
+                <property>controls/circuit-breakers/beacon</property>
+        <offset-m>0.01</offset-m>
+        <factor>-0.01</factor>
+        <axis>
+            <x>1</x>
+        </axis>
+    </animation>
+    <animation>
+        <type>pick</type>
+        <object-name>navdonmebreaker</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/circuit-breakers/navigation-lights</property>
+            </binding>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/circuit-breakers/dome-lights</property>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>c150.PlaySound("click-panel")</script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>strobe-breaker</tooltip-id>
+                <label>Navigation and Dome Lt Breaker: %s</label>
+                <mapping>on-off</mapping>
+                <property>controls/circuit-breakers/navigation-lights</property>
+            </binding>
+        </hovered>
+    </animation>
+    <animation>
+        <type>translate</type>
+        <object-name>navdonmebreaker</object-name>
+                <property>controls/circuit-breakers/navigation-lights</property>
+        <offset-m>0.01</offset-m>
+        <factor>-0.01</factor>
+        <axis>
+            <x>1</x>
+        </axis>
+    </animation>
+    <animation>
+        <type>pick</type>
+        <object-name>com1breaker</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/circuit-breakers/nav-com-1</property>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>c150.PlaySound("click-panel")</script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>strobe-breaker</tooltip-id>
+                <label>COM1 Breaker: %s</label>
+                <mapping>on-off</mapping>
+                <property>controls/circuit-breakers/nav-com-1</property>
+            </binding>
+        </hovered>
+    </animation>
+    <animation>
+        <type>translate</type>
+        <object-name>com1breaker</object-name>
+                <property>controls/circuit-breakers/nav-com-1</property>
+        <offset-m>0.01</offset-m>
+        <factor>-0.01</factor>
+        <axis>
+            <x>1</x>
+        </axis>
+    </animation>
+    <animation>
+        <type>pick</type>
+        <object-name>com2breaker</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/circuit-breakers/nav-com-2</property>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>c150.PlaySound("click-panel")</script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>strobe-breaker</tooltip-id>
+                <label>COM2 Breaker: %s</label>
+                <mapping>on-off</mapping>
+                <property>controls/circuit-breakers/nav-com-2</property>
+            </binding>
+        </hovered>
+    </animation>
+    <animation>
+        <type>translate</type>
+        <object-name>com2breaker</object-name>
+                <property>controls/circuit-breakers/nav-com-2</property>
+        <offset-m>0.01</offset-m>
+        <factor>-0.01</factor>
+        <axis>
+            <x>1</x>
+        </axis>
+    </animation>
+    <animation>
+        <type>pick</type>
+        <object-name>xpdrbreaker</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/circuit-breakers/nav-com-3</property>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>c150.PlaySound("click-panel")</script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>strobe-breaker</tooltip-id>
+                <label>XPDR Breaker: %s</label>
+                <mapping>on-off</mapping>
+                <property>controls/circuit-breakers/nav-com-3</property>
+            </binding>
+        </hovered>
+    </animation>
+    <animation>
+        <type>translate</type>
+        <object-name>xpdrbreaker</object-name>
+                <property>controls/circuit-breakers/nav-com-3</property>
+        <offset-m>0.01</offset-m>
+        <factor>-0.01</factor>
+        <axis>
+            <x>1</x>
+        </axis>
+    </animation>
+    <animation>
+        <type>pick</type>
+        <object-name>indbreaker</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/circuit-breakers/indicators</property>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>c150.PlaySound("click-panel")</script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>strobe-breaker</tooltip-id>
+                <label>Indicators Breaker: %s</label>
+                <mapping>on-off</mapping>
+                <property>controls/circuit-breakers/indicators</property>
+            </binding>
+        </hovered>
+    </animation>
+    <animation>
+        <type>translate</type>
+        <object-name>indbreaker</object-name>
+                <property>controls/circuit-breakers/indicators</property>
+        <offset-m>0.01</offset-m>
+        <factor>-0.01</factor>
+        <axis>
+            <x>1</x>
+        </axis>
+    </animation>-->
+    
+    
+    
  <!-- Interior -->
 
- <animation>
+ <!--animation>
   <name>InteriorGroup</name>
   <object-name>Cabin</object-name>
   <object-name>Panel</object-name>
@@ -506,7 +1347,7 @@
   <object-name>InteriorGroup</object-name>
   <min-m>0</min-m>
   <max-m>50</max-m>
- </animation>
+ </animation-->
 
  <!-- ==================== Airframe ==================== -->
 
@@ -524,6 +1365,7 @@
  <animation>
   <type>select</type>
   <object-name>Propeller.Slow</object-name>
+  <nopreview/>
   <condition>
    <and>
     <greater-than>
@@ -541,6 +1383,7 @@
  <animation>
   <type>select</type>
   <object-name>Propeller.Fast</object-name>
+  <nopreview/>
   <condition>
    <greater-than>
     <property>engines/engine[0]/rpm</property>
@@ -564,6 +1407,7 @@
  <animation>
   <type>translate</type>
   <object-name>LeftNavLightOn</object-name>
+  <nopreview/>
   <offset-m>5.60</offset-m>
   <axis>
    <x>2.16</x>
@@ -575,6 +1419,7 @@
  <animation>
   <type>translate</type>
   <object-name>RightNavLightOn</object-name>
+  <nopreview/>
   <offset-m>5.60</offset-m>
   <axis>
    <x>2.16</x>
@@ -586,6 +1431,7 @@
  <animation>
   <type>translate</type>
   <object-name>RearNavLightOn</object-name>
+  <nopreview/>
   <offset-m>7.35</offset-m>
   <axis>
    <x>7.30</x>
@@ -608,21 +1454,39 @@
  </animation>
 
 
- <animation>
+ <!--animation>
   <name>BeaconFlasher</name>
+  <nopreview/>
   <type>timed</type>
   <object-name>BeaconOff</object-name>
   <object-name>BeaconOn</object-name>
   <duration-sec>1.0</duration-sec>
- </animation>
+ </animation-->
 
- <animation>
-  <type>select</type>
-  <object-name>BeaconFlasher</object-name>
-  <condition>
-   <property>controls/lighting/beacon</property>
-  </condition>
- </animation>
+    <animation>
+        <type>translate</type>
+        <object-name>BeaconFlasher</object-name>
+        <nopreview/>
+        <offset-m>6.75</offset-m>
+        <axis>
+            <x>6.68361</x>
+            <y>0.0</y>
+            <z>1.27045</z>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>billboard</type>
+        <object-name>BeaconFlasher</object-name>
+    </animation>
+
+    <animation>
+        <type>select</type>
+        <object-name>BeaconFlasher</object-name>
+        <condition>
+            <property>/sim/model/c150/lighting/beacon/state</property>
+        </condition>
+    </animation>
 
  <!-- Propeller -->
  
@@ -633,8 +1497,8 @@
   <factor>-1.0</factor>
   <center>
    <x-m>0.16</x-m>
-   <y-m>0</y-m>
-   <z-m>0.01</z-m>
+   <y-m>0.00</y-m>
+   <z-m>0.0619576</z-m>
   </center>
   <axis>
    <x>1.0</x>
@@ -650,8 +1514,8 @@
   <factor>-0.75</factor>
   <center>
    <x-m>0.16</x-m>
-   <y-m>0</y-m>
-   <z-m>0.01</z-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0619576</z-m>
   </center>
   <axis>
    <x>1.0</x>
@@ -667,8 +1531,8 @@
   <factor>-0.5</factor>
   <center>
    <x-m>0.16</x-m>
-   <y-m>0</y-m>
-   <z-m>0.01</z-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0619576</z-m>
   </center>
   <axis>
    <x>1.0</x>
@@ -684,8 +1548,8 @@
   <factor>-0.5</factor>
   <center>
    <x-m>0.0</x-m>
-   <y-m>0</y-m>
-   <z-m>0.011</z-m>
+   <y-m>0.0</y-m>
+   <z-m>0.0619576</z-m>
   </center>
   <axis>
    <x>1.0</x>
@@ -694,12 +1558,12 @@
   </axis>
  </animation>
 
- <animation>
+ <!--animation>
   <type>shader</type>
   <shader>chrome</shader>
   <texture>chrome2.rgb</texture>
   <object-name>NoseWheelPart</object-name>
- </animation>
+ </animation-->
 
  <!-- Nose Wheel & Strut -->
 
@@ -829,7 +1693,7 @@
     <property>gear/gear[1]/rollspeed-ms</property>
     <factor>47.74</factor>
     <center>
-      <x-m>2.279</x-m>
+      <x-m>2.33099</x-m>
       <y-m>1.193</y-m>
       <z-m>-0.982</z-m>
     </center>
@@ -862,7 +1726,7 @@
     <property>gear/gear[2]/rollspeed-ms</property>
     <factor>47.74</factor>
     <center>
-      <x-m>2.279</x-m>
+      <x-m>2.33099</x-m>
       <y-m>-1.21</y-m>
       <z-m>-0.982</z-m>
     </center>
@@ -891,61 +1755,61 @@
 
  <!-- Control surfaces -->
 
- <animation>
-  <type>rotate</type>
-  <object-name>LeftAileron</object-name>
-  <property>surface-positions/left-aileron-pos-norm</property>
-  <interpolation>
-   <entry>
-    <ind>-1.0</ind>
-    <dep>14</dep>
-   </entry>
-   <entry>
-    <ind>0.0</ind>
-    <dep>0</dep>
-   </entry>
-   <entry>
-    <ind>1.0</ind>
-    <dep>-20</dep>
-   </entry>
-  </interpolation>
-  <axis>
-   <x1-m>2.91</x1-m>
-   <y1-m>-2.17</y1-m>
-   <z1-m>0.64</z1-m>
-   <x2-m>2.61</x2-m>
-   <y2-m>-4.93</y2-m>
-   <z2-m>0.72</z2-m>
-  </axis>
- </animation>
+    <animation>
+        <type>rotate</type>
+        <object-name>LeftAileron</object-name>
+        <property>surface-positions/left-aileron-pos-norm</property>
+        <interpolation>
+            <entry>
+                <ind>-1.0</ind>
+                <dep>14</dep>
+            </entry>
+            <entry>
+                <ind>0.0</ind>
+                <dep>0</dep>
+            </entry>
+            <entry>
+                <ind>1.0</ind>
+                <dep>-20</dep>
+            </entry>
+        </interpolation>
+        <axis>
+            <x1-m>2.98908</x1-m>
+            <y1-m>-2.05767</y1-m>
+            <z1-m>0.63722</z1-m>
+            <x2-m>2.61327</x2-m>
+            <y2-m>-4.76842</y2-m>
+            <z2-m>0.754667</z2-m>
+        </axis>
+    </animation>
 
- <animation>
-  <type>rotate</type>
-  <object-name>RightAileron</object-name>
-  <property>surface-positions/right-aileron-pos-norm</property>
-  <interpolation>
-   <entry>
-    <ind>-1.0</ind>
-    <dep>-20</dep>
-   </entry>
-   <entry>
-    <ind>0.0</ind>
-    <dep>0</dep>
-   </entry>
-   <entry>
-    <ind>1.0</ind>
-    <dep>14</dep>
-   </entry>
-  </interpolation>
-  <axis>
-   <x1-m>2.989</x1-m>
-   <y1-m>2.058</y1-m>
-   <z1-m>0.611</z1-m>
-   <x2-m>2.613</x2-m>
-   <y2-m>4.771</y2-m>
-   <z2-m>0.727</z2-m>
-  </axis>
- </animation>
+    <animation>
+        <type>rotate</type>
+        <object-name>RightAileron</object-name>
+        <property>surface-positions/right-aileron-pos-norm</property>
+        <interpolation>
+            <entry>
+                <ind>-1.0</ind>
+                <dep>-20</dep>
+            </entry>
+            <entry>
+                <ind>0.0</ind>
+                <dep>0</dep>
+            </entry>
+            <entry>
+                <ind>1.0</ind>
+                <dep>14</dep>
+            </entry>
+        </interpolation>
+        <axis>
+            <x1-m>2.98908</x1-m>
+            <y1-m>2.05767</y1-m>
+            <z1-m>0.63722</z1-m>
+            <x2-m>2.61327</x2-m>
+            <y2-m>4.76842</y2-m>
+            <z2-m>0.754667</z2-m>
+        </axis>
+    </animation>
 
  <animation>
   <type>translate</type>
@@ -953,25 +1817,22 @@
   <property>surface-positions/flap-pos-norm</property>
   <factor>0.113</factor>
   <axis>
-   <x>-0.04</x>
-   <y>0.0</y>
-   <z>-0.122</z>
-  </axis>
-  <axis>
-   <x1-m>1.763</x1-m>
-   <y1-m>0.489</y1-m>
-   <z1-m>0.534</z1-m>
-   <x2-m>1.725</x2-m>
-   <y2-m>0.489</y2-m>
-   <z2-m>0.412</z2-m>
+   <x1-m>1.76242</x1-m>
+   <y1-m>-0.47487</y1-m>
+   <z1-m>0.538846</z1-m>
+   <x2-m>1.7237</x2-m>
+   <y2-m>-0.472501</y2-m>
+   <z2-m>0.403808</z2-m>
   </axis>
  </animation>
 
  <animation>
   <type>translate</type>
   <object-name>LeftFlap</object-name>
+  <object-name>Lflaps1</object-name>
+  <object-name>FlapsCmdL</object-name>
   <property>surface-positions/flap-pos-norm</property>
-  <factor>0.10</factor>
+  <factor>0.07</factor>
     <axis>
       <x>1.0</x>
       <y>0.0</y>
@@ -982,23 +1843,42 @@
  <animation>
   <type>rotate</type>
   <object-name>LeftFlap</object-name>
+  <object-name>Lflaps1</object-name>
+  <object-name>FlapsCmdL</object-name>
   <property>surface-positions/flap-pos-norm</property>
-  <factor>40</factor>
+  <factor>-40</factor>
   <axis>
-   <x1-m>2.87</x1-m>
-   <y1-m>0.516</y1-m>
-   <z1-m>0.579</z1-m>
-   <x2-m>2.87</x2-m>
-   <y2-m>2.058</y2-m>
-   <z2-m>0.547</z2-m>
+   <x1-m>2.816</x1-m>
+   <y1-m>-0.767128</y1-m>
+   <z1-m>0.57004</z1-m>
+   <x2-m>2.816</x2-m>
+   <y2-m>-1.80123</y2-m>
+   <z2-m>0.592604</z2-m>
+  </axis>
+ </animation>
+
+ <animation>
+  <type>rotate</type>
+  <object-name>FlapsCmdL</object-name>
+  <property>surface-positions/flap-pos-norm</property>
+  <factor>-40</factor>
+  <axis>
+   <x1-m>2.81833</x1-m>
+   <y1-m>-1.27816</y1-m>
+   <z1-m>0.609834</z1-m>
+   <x2-m>2.81833</x2-m>
+   <y2-m>-1.26181</y2-m>
+   <z2-m>0.609834</z2-m>
   </axis>
  </animation>
 
  <animation>
   <type>translate</type>
   <object-name>RightFlap</object-name>
+  <object-name>Rflaps1</object-name>
+  <object-name>FlapsCmdR</object-name>
   <property>surface-positions/flap-pos-norm</property>
-  <factor>0.10</factor>
+  <factor>0.07</factor>
     <axis>
       <x>1.0</x>
       <y>0.0</y>
@@ -1009,39 +1889,58 @@
  <animation>
   <type>rotate</type>
   <object-name>RightFlap</object-name>
+  <object-name>Rflaps1</object-name>
+  <object-name>FlapsCmdR</object-name>
   <property>surface-positions/flap-pos-norm</property>
   <factor>40</factor>
   <axis>
-   <x1-m>2.87</x1-m>
-   <y1-m>-2.058</y1-m>
-   <z1-m>0.547</z1-m>
-   <x2-m>2.87</x2-m>
-   <y2-m>-0.516</y2-m>
-   <z2-m>0.579</z2-m>
+   <x1-m>2.816</x1-m>
+   <y1-m>0.767128</y1-m>
+   <z1-m>0.57004</z1-m>
+   <x2-m>2.816</x2-m>
+   <y2-m>1.80123</y2-m>
+   <z2-m>0.592604</z2-m>
   </axis>
  </animation>
 
  <animation>
   <type>rotate</type>
-  <object-name>ElevatorTrimTab</object-name>
-  <property>controls/flight/elevator-trim</property>
-  <factor>25</factor>
+  <object-name>FlapsCmdR</object-name>
+  <property>surface-positions/flap-pos-norm</property>
+  <factor>40</factor>
   <axis>
-   <x1-m>6.595</x1-m>
-   <y1-m>-0.207</y1-m>
-   <z1-m>-0.084</z1-m>
-   <x2-m>6.469</x2-m>
-   <y2-m>-1.414</y2-m>
-   <z2-m>-0.084</z2-m>
+   <x1-m>2.81833</x1-m>
+   <y1-m>1.27816</y1-m>
+   <z1-m>0.609834</z1-m>
+   <x2-m>2.81833</x2-m>
+   <y2-m>1.26181</y2-m>
+   <z2-m>0.609834</z2-m>
   </axis>
  </animation>
+
+
+    <animation>
+        <type>rotate</type>
+        <object-name>ElevatorTrimTab</object-name>
+        <property>controls/flight/elevator-trim</property>
+        <factor>100</factor>
+        <axis>
+            <x1-m>6.595</x1-m>
+            <y1-m>0.207</y1-m>
+            <z1-m>-0.096</z1-m>
+            <x2-m>6.469</x2-m>
+            <y2-m>1.414</y2-m>
+            <z2-m>-0.091</z2-m>
+        </axis>
+    </animation>
 
  <animation>
   <type>rotate</type>
   <object-name>LeftElevator</object-name>
   <object-name>RightElevator</object-name>
   <object-name>ElevatorTrimTab</object-name>
-  <property>surface-positions/elevator-pos-norm</property>
+  <!--property>surface-positions/elevator-pos-norm</property-->
+  <property>controls/flight/elevator</property>
   <interpolation>
    <entry>
     <ind>-1.0</ind>
@@ -1068,71 +1967,288 @@
   </axis>
  </animation>
 
+    <animation>
+        <type>rotate</type>
+        <object-name>RudderCmdL</object-name>
+        <property>surface-positions/rudder-pos-norm</property>
+        <factor>23</factor>
+        <axis>
+            <x1-m>6.17259</x1-m>
+            <y1-m>-0.086072</y1-m>
+            <z1-m>-0.200927</z1-m>
+            <x2-m>6.16641</x2-m>
+            <y2-m>-0.08564</y2-m>
+            <z2-m>-0.222551</z2-m>
+        </axis>
+    </animation>
 
- <animation>
-  <type>rotate</type>
-  <object-name>Rudder</object-name>
-  <property>surface-positions/rudder-pos-norm</property>
-  <factor>23</factor>
-  <axis>
-   <x1-m>6.31</x1-m>
-   <y1-m>0.0</y1-m>
-   <z1-m>-0.04</z1-m>
-   <x2-m>6.89</x2-m>
-   <y2-m>0.0</y2-m>
-   <z2-m>0.97</z2-m>
-  </axis>
- </animation>
+    <animation>
+        <type>rotate</type>
+        <object-name>RudderCmdR</object-name>
+        <property>surface-positions/rudder-pos-norm</property>
+        <factor>23</factor>
+        <axis>
+            <x1-m>6.17259</x1-m>
+            <y1-m>0.086072</y1-m>
+            <z1-m>-0.200927</z1-m>
+            <x2-m>6.16641</x2-m>
+            <y2-m>0.08564</y2-m>
+            <z2-m>-0.222551</z2-m>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>Rudder</object-name>
+        <property>surface-positions/rudder-pos-norm</property>
+        <factor>23</factor>
+        <axis>
+            <x1-m>6.31</x1-m>
+            <y1-m>0.0</y1-m>
+            <z1-m>-0.04</z1-m>
+            <x2-m>6.89</x2-m>
+            <y2-m>0.0</y2-m>
+            <z2-m>0.97</z2-m>
+        </axis>
+    </animation>
 
  <!-- Doors -->
 
- <animation>
-  <type>rotate</type>
-  <object-name>RDoorGroup</object-name>
-  <property>sim/model/c150/doors/door[1]/position-norm</property>
-  <min-deg>-70</min-deg>
-  <factor>-70</factor>
-  <axis>
-   <x1-m>1.848</x1-m>
-   <y1-m>0.514</y1-m>
-   <z1-m>0.451</z1-m>
-   <x2-m>1.847</x2-m>
-   <y2-m>0.514</y2-m>
-   <z2-m>-0.203</z2-m>
-  </axis>
- </animation>
- <animation>
-  <type>rotate</type>
-  <object-name>Rwindborder</object-name>
-  <object-name>Rdoorglass</object-name>
-  <property>sim/model/c150/doors/door[3]/position-norm</property>
-  <factor>20</factor>
-  <axis>
-   <x1-m>1.900</x1-m>
-   <y1-m>0.500</y1-m>
-   <z1-m>0.460</z1-m>
-   <x2-m>2.490</x2-m>
-   <y2-m>0.500</y2-m>
-   <z2-m>0.460</z2-m>
-  </axis>
- </animation>
+    <animation>
+        <type>rotate</type>
+        <object-name>RDoorGroup</object-name>
+        <property>sim/model/c150/doors/door[1]/position-norm</property>
+        <min-deg>-60</min-deg>
+        <factor>-70</factor>
+        <axis>
+            <x1-m>1.724</x1-m>
+            <y1-m>0.538</y1-m>
+            <z1-m>0.132</z1-m>
+            <x2-m>1.665</x2-m>
+            <y2-m>0.496</y2-m>
+            <z2-m>-0.267</z2-m>
+        </axis>
+    </animation>
 
- <animation>
-  <type>rotate</type>
-  <object-name>LDoorGroup</object-name>
-  <property>sim/model/c150/doors/door[0]/position-norm</property>
-  <max-deg>70</max-deg>
-  <factor>70</factor>
-  <axis>
-   <x1-m>1.848</x1-m>
-   <y1-m>-0.514</y1-m>
-   <z1-m>0.451</z1-m>
-   <x2-m>1.847</x2-m>
-   <y2-m>-0.514</y2-m>
-   <z2-m>-0.203</z2-m>
-  </axis>
- </animation>
- <animation>
+    <animation>
+        <type>rotate</type>
+        <object-name>RDoor-IntHandle</object-name>
+        <property>sim/model/c150/doors/door[1]/position-norm</property>
+        <interpolation>
+            <entry>
+                <ind>0.0</ind>
+                <dep>0.0</dep>
+            </entry>
+            <entry>
+                <ind>0.1</ind>
+                <dep>-20.0</dep>
+            </entry>
+            <entry>
+                <ind>0.2</ind>
+                <dep>0.0</dep>
+            </entry>
+            <entry>
+                <ind>1</ind>
+                <dep>0.0</dep>
+            </entry>
+        </interpolation>
+        <axis>
+            <x1-m>2.045</x1-m>
+            <y1-m>0.506</y1-m>
+            <z1-m>0.065</z1-m>
+            <x2-m>2.044</x2-m>
+            <y2-m>0.506</y2-m>
+            <z2-m>0.030</z2-m>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>RDoor-handle</object-name>
+        <property>sim/model/c150/doors/door[1]/position-norm</property>
+        <interpolation>
+            <entry>
+                <ind>0.0</ind>
+                <dep>0.0</dep>
+            </entry>
+            <entry>
+                <ind>0.1</ind>
+                <dep>30.0</dep>
+            </entry>
+            <entry>
+                <ind>0.2</ind>
+                <dep>0.0</dep>
+            </entry>
+            <entry>
+                <ind>1</ind>
+                <dep>0.0</dep>
+            </entry>
+        </interpolation>
+        <axis>
+            <x1-m>2.511</x1-m>
+            <y1-m>0.531</y1-m>
+            <z1-m>0.038</z1-m>
+            <x2-m>2.509</x2-m>
+            <y2-m>0.531</y2-m>
+            <z2-m>0.000</z2-m>
+        </axis>
+    </animation>
+
+
+    <animation>
+        <type>rotate</type>
+        <object-name>LDoorGroup</object-name>
+        <property>sim/model/c150/doors/door[0]/position-norm</property>
+        <max-deg>60</max-deg>
+        <factor>70</factor>
+        <axis>
+            <x1-m>1.724</x1-m>
+            <y1-m>-0.538</y1-m>
+            <z1-m>0.132</z1-m>
+            <x2-m>1.665</x2-m>
+            <y2-m>-0.496</y2-m>
+            <z2-m>-0.267</z2-m>
+        </axis>
+    </animation>
+ 
+    <animation>
+        <type>rotate</type>
+        <object-name>LDoor-IntHandle</object-name>
+        <property>sim/model/c150/doors/door[0]/position-norm</property>
+        <interpolation>
+            <entry>
+                <ind>0.0</ind>
+                <dep>0.0</dep>
+            </entry>
+            <entry>
+                <ind>0.1</ind>
+                <dep>20.0</dep>
+            </entry>
+            <entry>
+                <ind>0.2</ind>
+                <dep>0.0</dep>
+            </entry>
+            <entry>
+                <ind>1</ind>
+                <dep>0.0</dep>
+            </entry>
+        </interpolation>
+        <axis>
+            <x1-m>2.045</x1-m>
+            <y1-m>-0.506</y1-m>
+            <z1-m>0.065</z1-m>
+            <x2-m>2.044</x2-m>
+            <y2-m>-0.506</y2-m>
+            <z2-m>0.030</z2-m>
+        </axis>
+    </animation>
+
+    <animation>
+        <type>rotate</type>
+        <object-name>LDoor-handle</object-name>
+        <property>sim/model/c150/doors/door[0]/position-norm</property>
+        <interpolation>
+            <entry>
+                <ind>0.0</ind>
+                <dep>0.0</dep>
+            </entry>
+            <entry>
+                <ind>0.1</ind>
+                <dep>-30.0</dep>
+            </entry>
+            <entry>
+                <ind>0.2</ind>
+                <dep>0.0</dep>
+            </entry>
+            <entry>
+                <ind>1</ind>
+                <dep>0.0</dep>
+            </entry>
+        </interpolation>
+        <axis>
+            <x1-m>2.511</x1-m>
+            <y1-m>-0.531</y1-m>
+            <z1-m>0.038</z1-m>
+            <x2-m>2.509</x2-m>
+            <y2-m>-0.531</y2-m>
+            <z2-m>0.000</z2-m>
+        </axis>
+    </animation>
+
+
+    <!-- Left Window -->
+    <animation>
+        <type>rotate</type>
+        <object-name>LDoor-wind-border</object-name>
+        <object-name>LDoor-glass</object-name>
+        <object-name>LDoor-locket-fix</object-name>
+        <object-name>LDoor-locket-mob</object-name>
+        <property>/controls/windows/windowL-angle</property>
+        <factor>-1</factor>
+        <axis>
+            <x1-m>1.89542</x1-m>
+            <y1-m>-0.512425</y1-m>
+            <z1-m>0.486114</z1-m>
+            <x2-m>2.4786</x2-m>
+            <y2-m>-0.513295</y2-m>
+            <z2-m>0.453625</z2-m>
+        </axis>
+    </animation>
+    <animation>
+        <type>rotate</type>
+        <object-name>LDoor-locket-mob</object-name>
+        <property>sim/model/c150/doors/door[2]/position-norm</property>
+        <factor>-90</factor>
+        <center>
+            <x-m>2.177</x-m>
+            <y-m>0.511</y-m>
+            <z-m>0.142</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+    <!-- Right Window -->
+    <animation>
+        <type>rotate</type>
+        <object-name>RDoor-wind-border</object-name>
+        <object-name>RDoor-glass</object-name>
+        <object-name>RDoor-locket-fix</object-name>
+        <object-name>RDoor-locket-mob</object-name>
+        <property>/controls/windows/windowR-angle</property>
+        <factor>1</factor>
+        <axis>
+            <x1-m>1.89542</x1-m>
+            <y1-m>0.512425</y1-m>
+            <z1-m>0.486114</z1-m>
+            <x2-m>2.4786</x2-m>
+            <y2-m>0.513295</y2-m>
+            <z2-m>0.453625</z2-m>
+        </axis>
+    </animation>
+    <animation>
+        <type>rotate</type>
+        <object-name>RDoor-locket-mob</object-name>
+        <property>sim/model/c150/doors/door[3]/position-norm</property>
+        <factor>90</factor>
+        <center>
+            <x-m>2.177</x-m>
+            <y-m>-0.511</y-m>
+            <z-m>0.142</z-m>
+        </center>
+        <axis>
+            <x>0</x>
+            <y>-1</y>
+            <z>0</z>
+        </axis>
+    </animation>
+
+
+
+ <!--animation>
   <type>rotate</type>
   <object-name>Lwindborder</object-name>
   <object-name>Ldoorglass</object-name>
@@ -1146,7 +2262,7 @@
    <y2-m>-0.500</y2-m>
    <z2-m>0.460</z2-m>
   </axis>
- </animation>
+ </animation-->
 
 
  <!-- Rudder Pedals and brake -->
@@ -1219,31 +2335,157 @@
   </center>
  </animation>
 
- <animation>
-  <type>translate</type>
-  <object-name>parkBrake</object-name>
-  <property>controls/gear/brake-parking</property>
-  <factor>0.05</factor>
-  <axis>
-   <x>1.0</x>
-   <y>0.0</y>
-   <z>0.0</z>
-  </axis>
- </animation>
+    <animation>
+        <type>translate</type>
+        <object-name>parkBrake</object-name>
+        <property>controls/gear/brake-parking</property>
+        <factor>0.05</factor>
+        <axis>
+            <x>1.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+    <animation>
+        <type>pick</type>
+        <object-name>parkBrake</object-name>
+        <visible>true</visible>
+        <action>
+            <name>Select</name>
+            <button>0</button>
+            <binding>
+                <command>property-toggle</command>
+                <property>controls/gear/brake-parking</property>
+            </binding>
+            <binding>
+                <command>nasal</command>
+                <script>c150.PlaySound("lever", 1.6)</script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <label>Parking brake: %s</label>
+                <property>controls/gear/brake-parking</property>
+                <tooltip-id>parking-brake</tooltip-id>
+                <mapping>on-off</mapping>
+            </binding>
+        </hovered>
+    </animation>
 
  <!-- -->
 
- <animation>
-  <type>translate</type>
-  <object-name>Primer</object-name>
-  <property>controls/engines[0]/engine/primer-pump</property>
-  <factor>0.03</factor>
-  <axis>
-   <x>1.0</x>
-   <y>0.0</y>
-   <z>0.0</z>
-  </axis>
- </animation>
+    <animation>
+        <type>translate</type>
+        <object-name>PrimerLever</object-name>
+        <property>controls/engines[0]/engine/primer-pump</property>
+        <factor>0.06</factor>
+        <axis>
+            <x>1.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+    <animation>
+        <type>pick</type>
+        <object-name>PrimerLever</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding> 
+                <command>nasal</command>
+                <script>
+                    c150.pumpPrimer();
+                </script>
+            </binding>
+        </action>
+        
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>primer</tooltip-id>
+                <label>Engine primer (%1d)</label>
+                <property>controls/engines/engine/primer</property>
+            </binding>
+        </hovered>
+    </animation>
+
+    <!-- Cabin heat and Air -->
+    <animation>
+        <type>slider</type>
+        <object-name>CabinHeat</object-name>
+        <visible>true</visible>
+        <drag-direction>vertical</drag-direction>
+        <action>
+            <binding>
+                <command>property-adjust</command>
+                <property>/environment/aircraft-effects/cabin-heat-set</property>
+                <factor>-0.05</factor>
+                <min>0</min>
+                <max>1</max>
+                <wrap>0</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <label>Cabin Heat: %3d%%</label>
+                <measure-text>Cabin Heat: 100%</measure-text>
+                <tooltip-id>cabinheat</tooltip-id>
+                <mapping>percent</mapping>
+                <property>/environment/aircraft-effects/cabin-heat-set</property>
+            </binding>
+        </hovered>
+    </animation>
+    <animation>
+        <type>translate</type>
+        <object-name>CabinHeat</object-name>
+        <property>/environment/aircraft-effects/cabin-heat-set</property>
+        <factor>0.03</factor>
+        <axis>
+            <x>1.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
+    <animation>
+        <type>slider</type>
+        <object-name>CabinAir</object-name>
+        <visible>true</visible>
+        <drag-direction>vertical</drag-direction>
+        <action>
+            <binding>
+                <command>property-adjust</command>
+                <property>/environment/aircraft-effects/cabin-air-set</property>
+                <factor>-0.05</factor>
+                <min>0</min>
+                <max>1</max>
+                <wrap>0</wrap>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <label>Cabin Air: %3d%%</label>
+                <measure-text>Cabin Air: 100%</measure-text>
+                <tooltip-id>cabinair</tooltip-id>
+                <mapping>percent</mapping>
+                <property>/environment/aircraft-effects/cabin-air-set</property>
+            </binding>
+        </hovered>
+    </animation>
+    <animation>
+        <type>translate</type>
+        <object-name>CabinAir</object-name>
+        <property>/environment/aircraft-effects/cabin-air-set</property>
+        <factor>0.03</factor>
+        <axis>
+            <x>1.0</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </axis>
+    </animation>
 
  <animation>
   <type>select</type>
@@ -1265,5 +2507,508 @@
     </less-than>
   </condition>
  </animation>
+
+    <!-- Pick animation for the doors -->
+    <animation>
+        <type>pick</type>
+        <object-name>RDoor-int</object-name>
+        <object-name>RDoor-handle</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>c150.rightDoor.toggle();</script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>RDoor-handle</tooltip-id>
+                <label>Right Door Open/Close</label>
+            </binding>
+        </hovered>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>LDoor-int</object-name>
+        <object-name>LDoor-handle</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>nasal</command>
+                <script>c150.leftDoor.toggle();</script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>LDoor-handle</tooltip-id>
+                <label>Left Door Open/Close</label>
+            </binding>
+        </hovered>
+    </animation>
+
+    <!-- Pick animation for the windows -->
+    <animation>
+        <type>pick</type>
+        <object-name>LDoor-locket-fix</object-name>
+        <object-name>LDoor-locket-mob</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <condition>
+                    <less-than>
+                        <property>/controls/windows/windowL-angle</property>
+                        <value>1</value>
+                    </less-than>
+                </condition>
+                <command>nasal</command>
+                <script>c150.leftWindow.toggle();</script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>window-handle-l</tooltip-id>
+                <label>Left Window Unlock/lock</label>
+            </binding>
+        </hovered>
+    </animation>
+  <animation>
+        <type>slider</type>
+        <object-name>LDoor-wind-border</object-name>
+        <object-name>LDoor-glass</object-name>
+        <visible>true</visible>
+        <drag-direction>vertical</drag-direction>
+        <action>
+            <binding>
+        <condition>
+            <equals>
+            <property>sim/model/c150/doors/door[2]/position-norm</property>
+            <value>1</value>
+        </equals>
+    </condition>
+                <command>property-adjust</command>
+                <property>controls/windows/windowL-angle</property>
+                <factor>1</factor>
+                <min>0</min>
+                <max>80</max>
+                <wrap>0</wrap>
+            </binding>
+        </action>
+    </animation>
+
+    <animation>
+        <type>pick</type>
+        <object-name>RDoor-locket-fix</object-name>
+        <object-name>RDoor-locket-mob</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <condition>
+                    <less-than>
+                        <property>/controls/windows/windowR-angle</property>
+                        <value>1</value>
+                    </less-than>
+                </condition>
+                <command>nasal</command>
+                <script>c150.rightWindow.toggle();</script>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>window-handle-r</tooltip-id>
+                <label>Right Window Open/Close</label>
+            </binding>
+        </hovered>
+    </animation>
+  <animation>
+        <type>slider</type>
+        <object-name>RDoor-wind-border</object-name>
+        <object-name>RDoor-glass</object-name>
+        <visible>true</visible>
+        <drag-direction>vertical</drag-direction>
+        <action>
+            <binding>
+                <condition>
+                    <equals>
+                        <property>sim/model/c150/doors/door[3]/position-norm</property>
+                        <value>1</value>
+                    </equals>
+            </condition>
+                <command>property-adjust</command>
+                <property>controls/windows/windowR-angle</property>
+                <factor>1</factor>
+                <min>0</min>
+                <max>80</max>
+                <wrap>0</wrap>
+            </binding>
+        </action>
+    </animation>
+
+
+    <!-- Registration number -->
+    <model>
+        <path>Aircraft/c150/Models/Immat/immat.xml</path>
+    </model>
+ 
+    <!--model>
+        <path>Effects/shadow/shadow.xml</path>
+    </model-->
+ 
+    <!-- Checklist -->
+    <model>
+        <path>Aircraft/Generic/marker.xml</path>
+    </model>
+
+<!-- INSTRUMENTS -->
+
+    <model>
+        <path>Aircraft/c150/Models/Panel/Instruments/asi/asi.xml</path>
+        <offsets>
+            <x-m>1.6485</x-m>
+            <y-m>-0.421</y-m>
+            <z-m>0.211</z-m>
+        </offsets>
+    </model>
+  
+
+    <model>
+        <path>Aircraft/c150/Models/Panel/Instruments/vor/vor.xml</path>
+        <offsets>
+            <x-m>1.651</x-m>
+            <y-m>-0.056</y-m>
+            <z-m>0.214</z-m>
+        </offsets>
+    </model>
+  
+    <!--
+    <model>
+        <path>Aircraft/c150/Models/Panel/Instruments/vor/vor2.xml</path>
+        <offsets>
+            <x-m>1.6485</x-m>
+            <y-m>-0.056</y-m>
+            <z-m>0.096</z-m>
+        </offsets>
+    </model>
+    -->
+    
+    <model>
+        <path>Aircraft/c150/Models/Panel/Instruments/adf/adf.xml</path>
+        <offsets>
+            <x-m>1.651</x-m>
+            <y-m>-0.056</y-m>
+            <z-m>0.096</z-m>
+        </offsets>
+    </model>
+  
+    <model>
+        <path>Aircraft/c150/Models/Panel/Instruments/alt/alt.xml</path>
+        <offsets>
+            <x-m>1.651</x-m>
+            <y-m>-0.155</y-m>
+            <z-m>0.214</z-m>
+        </offsets>
+    </model>
+  
+    <model>
+        <path>Aircraft/c150/Models/Panel/Instruments/ai/ai.xml</path>
+        <offsets>
+            <x-m>1.645</x-m>
+            <y-m>-0.318</y-m>
+            <z-m>0.214</z-m>
+        </offsets>
+    </model>
+  
+    <model>
+        <path>Aircraft/c150/Models/Panel/Instruments/hi/hi.xml</path>
+        <offsets>
+            <x-m>1.657</x-m>
+            <y-m>-0.323</y-m>
+            <z-m>0.096</z-m>
+        </offsets>
+    </model>
+  
+    <model>
+        <path>Aircraft/c150/Models/Panel/Instruments/rpm/rpm.xml</path>
+        <offsets>
+            <x-m>1.652</x-m>
+            <y-m>0.254</y-m>
+            <z-m>0.209</z-m>
+        </offsets>
+    </model>
+  
+    <model>
+        <path>Aircraft/c150/Models/Panel/Instruments/vac/vac.xml</path>
+        <offsets>
+            <x-m>1.657</x-m>
+            <y-m>0.445</y-m>
+            <z-m>0.210</z-m>
+        </offsets>
+    </model>
+  
+    <model>
+        <path>Aircraft/c150/Models/Panel/Instruments/ammeter/ammeter.xml</path>
+        <offsets>
+            <x-m>1.654</x-m>
+            <y-m>0.453</y-m>
+            <z-m>0.112</z-m>
+        </offsets>
+    </model>
+  
+ 
+    <model>
+        <path>Aircraft/c150/Models/Panel/Instruments/hobbs/hobbs.xml</path>
+        <offsets>
+            <x-m>1.657</x-m>
+            <y-m>0.357</y-m>
+            <z-m>0.2086</z-m>
+        </offsets>
+    </model>
+  
+    <model>
+        <path>Aircraft/c150/Models/Panel/Instruments/tc/tc.xml</path>
+        <offsets>
+            <x-m>1.657</x-m>
+            <y-m>-0.421</y-m>
+            <z-m>0.096</z-m>
+        </offsets>
+    </model>
+    
+    <animation>
+        <type>scale</type>
+        <x-offset>1.05</x-offset>
+        <y-offset>1.05</y-offset>
+        <z-offset>1.05</z-offset>
+    </animation>
+  
+    <model>
+        <path>Aircraft/c150/Models/Panel/Instruments/clock/clock.xml</path>
+        <offsets>
+            <x-m>1.6535</x-m>
+            <y-m>-0.237</y-m>
+            <z-m>0.186</z-m>
+        </offsets>
+    </model>
+  
+    <model>
+        <path>Aircraft/c150/Models/Panel/Instruments/vsi/vsi.xml</path>
+        <offsets>
+            <x-m>1.651</x-m>
+            <y-m>-0.152</y-m>
+            <z-m>0.096</z-m>
+        </offsets>
+    </model>
+
+    <model>
+        <path>Aircraft/c150/Models/Panel/Instruments/fuel-oil/LeftFuel.xml</path>
+        <offsets>
+            <x-m>1.657</x-m>
+            <y-m>0.311</y-m>
+            <z-m>0.135</z-m>
+        </offsets>
+    </model>
+  
+    <model>
+        <path>Aircraft/c150/Models/Panel/Instruments/fuel-oil/RightFuel.xml</path>
+        <offsets>
+            <x-m>1.657</x-m>
+            <y-m>0.385</y-m>
+            <z-m>0.135</z-m>
+        </offsets>
+    </model>
+  
+    <model>
+        <path>Aircraft/c150/Models/Panel/Instruments/fuel-oil/OilPress.xml</path>
+        <offsets>
+            <x-m>1.657</x-m>
+            <y-m>0.311</y-m>
+            <z-m>0.085</z-m>
+        </offsets>
+    </model>
+  
+    <model>
+        <path>Aircraft/c150/Models/Panel/Instruments/fuel-oil/OilTemp.xml</path>
+        <offsets>
+            <x-m>1.657</x-m>
+            <y-m>0.385</y-m>
+            <z-m>0.085</z-m>
+        </offsets>
+    </model>
+  
+
+    <model>
+        <path>Aircraft/c150/Models/Panel/Instruments/arc/rt-385a.xml</path>
+        <offsets>
+        <x-m> 1.662</x-m>
+        <y-m> 0.098</y-m>
+        <z-m>0.249</z-m>
+        </offsets>
+    </model>
+    
+    <!--
+    <model>
+        <path>Aircraft/c150/Models/Panel/Instruments/arc/rt-385a-2.xml</path>
+        <offsets>
+        <x-m> 1.662</x-m>
+        <y-m> 0.098</y-m>
+        <z-m>0.185</z-m>
+        </offsets>
+    </model>
+    -->
+    
+    <model>
+        <path>Aircraft/c150/Models/Panel/Instruments/arc/r-546e.xml</path>
+        <offsets>
+        <x-m> 1.663</x-m>
+        <y-m> 0.098</y-m>
+        <z-m>0.121</z-m>
+        </offsets>
+    </model>
+    
+    <model>
+        <path>Aircraft/c150/Models/Panel/Instruments/kt76a/kt76a.xml</path>
+        <offsets>
+        <x-m> 1.662</x-m>
+        <y-m> 0.098</y-m>
+        <z-m>0.067</z-m>
+        </offsets>
+    </model>
+    
+ 
+  <model>
+    <path>Aircraft/c150/Models/Panel/Other/CODetector/CODetector.xml</path>
+    <offsets>
+      <x-m> 1.72</x-m>
+   <y-m> -0.49</y-m>
+   <z-m>0.16</z-m>
+   <heading-deg>90</heading-deg>
+    </offsets>
+  </model>
+  
+  <model>
+    <path>Aircraft/c150/Models/Panel/Instruments/compass/compass.xml</path>
+    <offsets>
+      <x-m>1.66</x-m>
+      <y-m>0.00</y-m>
+      <z-m>0.565</z-m>
+    </offsets>
+  </model>
+  
+
+  <!--model>
+    <path>Aircraft/c150/Models/Panel/Other/Switches/panel.xml</path>
+    <offsets>
+      <x-m> 1.65</x-m>
+   <y-m>-0.28</y-m>
+   <z-m>0.11</z-m>
+   <pitch-deg>-10</pitch-deg>
+    </offsets>
+  </model-->
+  
+    <!-- Baggage models -->
+    <model>
+        <name>suitcase1</name>
+        <path>Baggages/suitcase1.xml</path>
+        <offsets>
+            <x-m>2.87</x-m>
+            <y-m>-0.14</y-m>
+            <z-m>-0.18</z-m>
+            <pitch-deg>2</pitch-deg>
+        </offsets>
+    </model>
+    <model>
+        <name>suitcase2</name>
+        <path>Baggages/suitcase2.xml</path>
+        <offsets>
+            <x-m>2.87</x-m>
+            <y-m>0.14</y-m>
+            <z-m>-0.18</z-m>
+            <pitch-deg>2</pitch-deg>
+        </offsets>
+    </model>
+    <animation>
+        <type>select</type>
+        <object-name>suitcase1</object-name>
+        <condition>
+            <greater-than>
+                <property>payload/weight[2]/weight-lb</property>
+                <value>20.0</value>
+            </greater-than>
+        </condition>
+    </animation>
+    <animation>
+        <type>select</type>
+        <object-name>suitcase2</object-name>
+        <condition>
+            <greater-than>
+                <property>payload/weight[2]/weight-lb</property>
+                <value>50.0</value>
+            </greater-than>
+        </condition>
+    </animation>
+    
+    <!-- Fuel cap -->
+    <animation>
+        <type>pick</type>
+        <object-name>LFuelCap</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>dialog-show</command>
+                <dialog-name>c150-left-fuel-dialog</dialog-name>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>fuel-cap-port</tooltip-id>
+                <label>Fuel Cap</label>
+            </binding>
+        </hovered>
+    </animation>
+    <animation>
+        <type>pick</type>
+        <object-name>RFuelCap</object-name>
+        <visible>true</visible>
+        <action>
+            <button>0</button>
+            <repeatable>false</repeatable>
+            <binding>
+                <command>dialog-show</command>
+                <dialog-name>c150-right-fuel-dialog</dialog-name>
+            </binding>
+        </action>
+        <hovered>
+            <binding>
+                <command>set-tooltip</command>
+                <tooltip-id>fuel-cap-starboard</tooltip-id>
+                <label>Fuel Cap</label>
+            </binding>
+        </hovered>
+    </animation>
+
+    <!-- Pilot and Co-pilot -->
+    <model>
+        <path>Models/Pilot/General/c150-pilot.xml</path>
+        <offsets>
+            <x-m>1.95</x-m>
+            <y-m>-0.22</y-m>
+            <z-m>-0.15</z-m>
+        </offsets>
+    </model>
+  
 
 </PropertyList>

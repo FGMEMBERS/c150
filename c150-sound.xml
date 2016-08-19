@@ -1,95 +1,101 @@
-<?xml version="1.0"?>
+<?xml version="1.0" encoding="UTF-8"?>
  
 <PropertyList>
 
  <fx>
  
-  <crank>
-   <name>engstart</name>
-   <path>Sounds/engstart.wav</path>
-   <property>/engines/engine/cranking</property>
-   <volume>
-    <!--offset>0.4</offset-->
-   </volume>
-  </crank>
+    <crank>
+        <name>engstart</name>
+        <path>Sounds/engstart.wav</path>
+        <property>/engines/engine/cranking</property>
+        <volume>
+            <factor>0.7</factor>
+        </volume>
+        <volume>
+            <property>sim/model/c150/sound/doorsk</property>
+        </volume>
+        <volume>
+            <property>/sim/sound/c150-engine/volume</property>
+        </volume>
+    </crank>
 
-  <crank>
-   <name>crank</name>
-   <mode>looped</mode>
-   <path>Sounds/cranking.wav</path>
-   <condition>
-    <property>/engines/engine/cranking</property>
-    <not>
-     <property>/engines/engine/running</property>
-    </not>
-   </condition>
-   <volume>
-    <!--offset>0.5</offset-->
-   </volume>
-  </crank>
+    <crank>
+        <name>crank</name>
+        <mode>looped</mode>
+        <path>Sounds/cranking.wav</path>
+        <condition>
+            <property>/engines/engine/cranking</property>
+            <not>
+                <property>/engines/engine/running</property>
+            </not>
+        </condition>
+        <volume>
+            <factor>0.7</factor>
+        </volume>
+        <volume>
+            <property>sim/model/c150/sound/doorsk</property>
+        </volume>
+        <volume>
+            <property>/sim/sound/c150-engine/volume</property>
+        </volume>
+    </crank>
 
-  <crank>
-   <name>cough</name>
-   <path>Sounds/coughing.wav</path>
-   <property>/engines/engine/running</property>
-   <volume>
-    <!--offset>0.3</offset-->
-   </volume>
-  </crank>
+    <crank>
+        <name>cough</name>
+        <path>Sounds/coughing.wav</path>
+        <property>/engines/engine/running</property>
+        <volume>
+            <factor>0.7</factor>
+        </volume>
+        <volume>
+            <property>sim/model/c150/sound/doorsk</property>
+        </volume>
+        <volume>
+            <property>/sim/sound/c150-engine/volume</property>
+        </volume>
+    </crank>
 
-  <engine>
-   <name>engine</name>
-   <mode>looped</mode>
-   <path>Sounds/wasp.wav</path>
-   <property>/engines/engine/running</property>
-   <volume>
-    <property>/engines/engine/mp-osi</property>
-    <factor>0.00375</factor>
-    <min>0.15</min>
-    <max>0.5</max>
-   </volume>
-   <volume>
-    <property>/orientation/alpha-deg</property>
-    <type>log</type>
-    <min>1.0</min>
-    <max>1.5</max>
-   </volume>
-   <volume>
-    <property>/sim/current-view/internal</property>
-    <offset>1.0</offset>
-    <factor>-0.7</factor>
-   </volume>
-   <pitch>
-    <property>/engines/engine/rpm</property>
-    <factor>0.0001</factor>
-    <min>0.1</min>
-    <max>2.0</max>
-   </pitch>
-  </engine>
+    <engine>
+        <name>engine</name>
+        <mode>looped</mode>
+        <path>Sounds/wasp.wav</path>
+        <!-- <path>Sounds/Engine_Continental-O200A.wav</path> -->
+        <property>/engines/engine/running</property>
+        <volume>
+            <property>/engines/engine/mp-osi</property>
+            <factor>0.00375</factor>
+            <min>0.15</min>
+            <max>0.5</max>
+        </volume>
+        <volume>
+            <property>/orientation/alpha-deg</property>
+            <type>log</type>
+            <min>1.0</min>
+            <max>1.5</max>
+        </volume>
+        <volume>
+            <property>/sim/current-view/internal</property>
+            <offset>1.0</offset>
+            <factor>-0.7</factor>
+        </volume>
+        <volume>
+            <property>sim/model/c150/sound/doorsk</property>
+        </volume>
+        <volume>
+            <property>/sim/sound/c150-engine/volume</property>
+        </volume>
+        <pitch>
+            <property>/engines/engine/rpm</property>
+            <!-- 0.00049 = 1/2040 reference sound wasp.wav recorded @ 2040 RPM -->
+            <!-- 0.000427 = 1/2340 reference sound Engine_Continental-O200A.wav -->
+            <!-- factor>0.000427</factor-->
+            <factor>0.00049</factor>
+            <min>0.1</min>
+            <max>2.0</max>
+            <offset>0.01</offset>
+        </pitch>
+    </engine>
 
-  <!--propeller>
-   <name>propeller</name>
-   <mode>looped</mode>
-   <path>Sounds/turboprop1.wav</path>
-   <property>/engines/engine/running</property>
-   <volume>
-    <property>/orientation/alpha-deg</property>
-    <type>log</type>
-    <min>0.2</min>
-    <max>1.0</max>
-   </volume>
-   <volume>
-    <property>/sim/current-view/internal</property>
-    <factor>0.5</factor>
-   </volume>
-   <pitch>
-    <property>/engines/engine/mp-osi</property>
-    <factor>0.0036</factor>
-    <min>0.5</min>
-    <max>2.0</max>
-    <offset>0.9</offset>
-   </pitch>
-  </propeller-->
 
   <rumble>
    <name>rumble</name>
@@ -107,6 +113,9 @@
     <type>log</type>
     <factor>0.5</factor> <!-- 0.25 -->
    </volume>
+        <volume>
+            <property>sim/model/c150/sound/doorsk</property>
+        </volume>
   </rumble>
 
   <squeal>
@@ -134,6 +143,9 @@
     <factor>0.05</factor>
     <max>1.0</max>
    </volume>
+        <volume>
+            <property>sim/model/c150/sound/doorsk</property>
+        </volume>
    <pitch>
     <property>/velocities/groundspeed-kt</property>
     <factor>0.0025</factor>
@@ -141,20 +153,23 @@
    </pitch>
   </squeal>
  
-  <flap>
-   <name>flaps</name>
-   <mode>in-transit</mode>
-   <path>Sounds/flaps.wav</path>
-   <property>/surface-positions/flap-pos-norm</property>
-   <volume>
-    <factor>0.8</factor>
-   </volume>
-   <pitch>
-    <factor>0.4</factor>
-   </pitch>
-   <reference-dist>10.0</reference-dist>
-   <max-dist>20.0</max-dist>
-  </flap>
+    <flap>
+        <name>flaps</name>
+        <mode>in-transit</mode>
+        <path>Sounds/Cessna150Flaps.wav</path>
+        <property>/surface-positions/flap-pos-norm</property>
+        <!--volume>
+            <factor>0.2</factor>
+        </volume-->
+        <volume>
+            <property>sim/model/c150/sound/doorsk</property>
+        </volume>
+        <!--pitch>
+            <offset>0.5</offset>
+        </pitch-->
+        <reference-dist>10.0</reference-dist>
+        <max-dist>20.0</max-dist>
+    </flap>
 
   <wind>
    <name>wind</name>
@@ -174,11 +189,11 @@
      <min>0.03</min>
      <max>0.25</max>
    </volume>
+        <volume>
+            <property>sim/model/c150/sound/doorsk</property>
+        </volume>
    <volume>
-     <property>sim/model/c150/doors/doorw</property>
-     <factor>2.0</factor>
-     <min>0.00</min>
-     <max>9.99</max>
+    <property>/sim/sound/c150-wind/volume</property>
    </volume>
    <pitch>
     <property>/velocities/airspeed-kt</property>
@@ -252,7 +267,7 @@
    <path>Sounds/door_close.wav</path>
    <condition>
     <equals>
-     <property>sim/model/c150/doors/door[0]/position-norm</property>
+     <property>sim/model/c150/doors/door[1]/position-norm</property>
      <value>0</value>
     </equals>
    </condition>
@@ -267,12 +282,52 @@
   </door>
 
   <door>
+   <name>open right door</name>
+   <mode>once</mode>
+   <path>Sounds/door-opening.wav</path>
+   <condition>
+    <greater-than>
+     <property>sim/model/c150/doors/door[1]/position-norm</property>
+     <value>0.1</value>
+    </greater-than>
+   </condition>
+   <position>
+    <x>2.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+   </position>
+   <volume>
+    <factor>1.0</factor>
+   </volume>
+  </door>
+
+  <door>
+   <name>open right window</name>
+   <mode>once</mode>
+   <path>Sounds/door-opening.wav</path>
+   <condition>
+    <greater-than>
+     <property>sim/model/c150/doors/door[3]/position-norm</property>
+     <value>0.1</value>
+    </greater-than>
+   </condition>
+   <position>
+    <x>2.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+   </position>
+   <volume>
+    <factor>1.0</factor>
+   </volume>
+  </door>
+
+  <door>
    <name>close left door</name>
    <mode>once</mode>
    <path>Sounds/door_close.wav</path>
    <condition>
     <equals>
-     <property>sim/model/c150/doors/door[1]/position-norm</property>
+     <property>sim/model/c150/doors/door[0]/position-norm</property>
      <value>0</value>
     </equals>
    </condition>
@@ -286,6 +341,168 @@
    </volume>
   </door>
 
-</fx>
+  <door>
+   <name>open left door</name>
+   <mode>once</mode>
+   <path>Sounds/door-opening.wav</path>
+   <condition>
+    <greater-than>
+     <property>sim/model/c150/doors/door[0]/position-norm</property>
+     <value>0.1</value>
+    </greater-than>
+   </condition>
+   <position>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+   </position>
+   <volume>
+    <factor>1.0</factor>
+   </volume>
+  </door>
+
+  <door>
+   <name>open left window</name>
+   <mode>once</mode>
+   <path>Sounds/door-opening.wav</path>
+   <condition>
+    <greater-than>
+     <property>sim/model/c150/doors/door[2]/position-norm</property>
+     <value>0.1</value>
+    </greater-than>
+   </condition>
+   <position>
+    <x>-1.0</x>
+    <y>0.0</y>
+    <z>0.0</z>
+   </position>
+   <volume>
+    <factor>1.0</factor>
+   </volume>
+  </door>
+
+    <on-off>
+        <name>nav-power-on-off</name>
+        <mode>once</mode>
+        <path>Sounds/click3.wav</path>
+        <condition>
+            <property>/sim/model/c150/sound/click-avionics</property>
+        </condition>
+        <position>
+            <x>0.5</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </position>
+        <volume>
+            <property>/sim/sound/c150-click/volume</property>
+        </volume>
+        <reference-dist>0.2</reference-dist>
+        <max-dist>5.0</max-dist>
+    </on-off>
+
+    <on-off>
+        <name>panel-clicks</name>
+        <mode>once</mode>
+        <path>Sounds/click.wav</path>
+        <condition>
+            <property>/sim/model/c150/sound/click-panel</property>
+        </condition>
+        <position>
+            <x>0.5</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </position>
+        <volume>
+            <property>/sim/sound/c150-click/volume</property>
+        </volume>
+        <reference-dist>0.2</reference-dist>
+        <max-dist>5.0</max-dist>
+    </on-off>
+
+    <switch>
+        <name>lever</name>
+        <mode>once</mode>
+        <path>Sounds/lever.wav</path>
+        <condition>
+            <property>/sim/model/c150/sound/lever</property>
+        </condition>
+        <position>
+            <x>0.5</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </position>
+        <volume>
+            <property>/sim/sound/c150-click/volume</property>
+        </volume>
+        <volume>
+            <factor>2.0</factor>
+        </volume>
+        <reference-dist>0.2</reference-dist>
+        <max-dist>5.0</max-dist>
+    </switch>
+
+<!--
+    <on-off>
+        <name>lever-out</name>
+        <mode>once</mode>
+        <path>Sounds/lever-out.wav</path>
+        <condition>
+            <property>/sim/model/c150/sound/lever_out</property>
+        </condition>
+        <position>
+            <x>0.5</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </position>
+        <volume>
+            <property>/sim/sound/c150-click/volume</property>
+        </volume>
+        <volume>
+            <factor>2.0</factor>
+        </volume>
+        <reference-dist>0.2</reference-dist>
+        <max-dist>5.0</max-dist>
+    </on-off>
+
+    <on-off>
+        <name>lever-in</name>
+        <mode>once</mode>
+        <path>Sounds/lever-in.wav</path>
+        <condition>
+            <property>/sim/model/c150/sound/lever_in</property>
+        </condition>
+        <position>
+            <x>0.5</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </position>
+        <volume>
+            <property>/sim/sound/c150-click/volume</property>
+        </volume>
+        <volume>
+            <factor>2.0</factor>
+        </volume>
+        <reference-dist>0.2</reference-dist>
+        <max-dist>5.0</max-dist>
+    </on-off>
+-->
+
+    <breaker>
+        <name>breaker</name>
+        <mode>once</mode>
+        <path>Sounds/click3.wav</path>
+        <condition>
+            <property>/sim/model/c150/sound/breakers</property>
+        </condition>
+        <position>
+            <x>0.5</x>
+            <y>0.0</y>
+            <z>0.0</z>
+        </position>
+        <reference-dist>0.2</reference-dist>
+        <max-dist>5.0</max-dist>
+    </breaker>
+
+ </fx>
  
 </PropertyList>
